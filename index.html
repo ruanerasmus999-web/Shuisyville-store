@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squishiverse SA | Premier Sensory Toys & Squishies</title>
-    <!-- Tailwind CSS CDN -->
+
+    <title>Squishyville | Premier Sensory Toys & Squishies</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Comfortaa & Inter -->
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -34,23 +40,19 @@
                     }
                 }
             }
-        }
+        };
     </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FAFAFD;
         }
+
         h1, h2, h3, .font-rounded {
             font-family: 'Comfortaa', cursive, sans-serif;
         }
-        .bounce-subtle {
-            animation: bounceSubtle 2.5s infinite;
-        }
-        @keyframes bounceSubtle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -58,681 +60,1404 @@
         }
     </style>
 </head>
+
 <body class="text-slate-800 antialiased selection:bg-squish-pink selection:text-white pb-24 md:pb-0">
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-pink-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2">
-                    <span class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-squish-pink to-squish-purple flex items-center justify-center text-white text-xl shadow-md">
-                        <i class="fa-solid fa-cloud"></i>
-                    </span>
-                    <span class="font-rounded font-bold text-xl sm:text-2xl bg-gradient-to-r from-squish-pink via-squish-purple to-squish-mint bg-clip-text text-transparent">
-                        Squishiverse.za
-                    </span>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-pink-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-center justify-between h-16">
+
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+
+                <span class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-squish-pink to-squish-purple flex items-center justify-center text-white text-xl shadow-md">
+                    <i class="fa-solid fa-cloud"></i>
+                </span>
+
+                <span class="font-rounded font-bold text-xl sm:text-2xl bg-gradient-to-r from-squish-pink via-squish-purple to-squish-mint bg-clip-text text-transparent">
+                    Squishyville
+                </span>
+
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+
+                <a href="#products" class="hover:text-squish-pink transition">
+                    Our Collection
                 </a>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
-                    <a href="#products" class="hover:text-squish-pink transition">Our Collection</a>
-                    <a href="#trust" class="hover:text-squish-pink transition">Why Us</a>
-                    <a href="#faq" class="hover:text-squish-pink transition">FAQs</a>
-                </nav>
+                <a href="#trust" class="hover:text-squish-pink transition">
+                    Why Us
+                </a>
 
-                <!-- Header Actions -->
-                <div class="flex items-center gap-3">
-                    <button onclick="toggleStoreConfig()" class="p-2 rounded-xl text-slate-500 hover:text-squish-pink hover:bg-squish-softpink/50 transition text-sm flex items-center gap-1.5 border border-slate-200" title="Configure Phone Number">
-                        <i class="fa-solid fa-gear text-squish-purple"></i>
-                        <span class="hidden sm:inline text-xs font-semibold">Store Config</span>
-                    </button>
-                    <a href="#cart" class="relative bg-squish-pink hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>Order Summary</span>
-                        <span id="cart-count-badge" class="bg-white text-squish-pink text-xs font-black px-2 py-0.5 rounded-full hidden">0</span>
+                <a href="#faq" class="hover:text-squish-pink transition">
+                    FAQs
+                </a>
+
+            </nav>
+
+            <!-- Cart Button -->
+            <a href="#cart"
+               class="relative bg-squish-pink hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center gap-2 text-sm">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span>Order Summary</span>
+
+                <span id="cart-count-badge"
+                      class="bg-white text-squish-pink text-xs font-black px-2 py-0.5 rounded-full hidden">
+                    0
+                </span>
+
+            </a>
+
+        </div>
+    </div>
+</header>
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="relative overflow-hidden bg-gradient-to-b from-squish-bg via-white to-slate-50 pt-10 pb-16 lg:pt-16 lg:pb-24">
+
+    <!-- Decorative Background -->
+    <div class="absolute top-12 left-10 w-32 h-32 bg-squish-yellow/40 rounded-full blur-2xl pointer-events-none"></div>
+
+    <div class="absolute top-1/2 right-5 w-48 h-48 bg-squish-mint/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="absolute bottom-10 left-1/3 w-40 h-40 bg-squish-softpink rounded-full blur-2xl pointer-events-none"></div>
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Hero Content -->
+            <div class="text-center lg:text-left space-y-6">
+
+                <div class="inline-flex items-center gap-2 bg-white/90 border border-pink-200 px-4 py-1.5 rounded-full text-xs font-bold text-squish-pink shadow-sm">
+
+                    <span class="flex h-2 w-2 rounded-full bg-squish-pink animate-ping"></span>
+
+                    <span>Official SA Sensory & Fidget Store</span>
+
+                </div>
+
+
+                <h1 class="font-rounded text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+
+                    Super Squishy.
+                    <br>
+
+                    <span class="bg-gradient-to-r from-squish-pink via-squish-purple to-squish-mint bg-clip-text text-transparent">
+                        Ultra Satisfying!
+                    </span>
+
+                </h1>
+
+
+                <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+
+                    Discover South Africa's favorite sensory stress balls,
+                    squishy dumplings, and authentic NeeDoh toys.
+
+                    Perfect for calm play, stress relief, and endless
+                    fidget fun!
+
+                </p>
+
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+
+                    <a href="#products"
+                       class="w-full sm:w-auto bg-gradient-to-r from-squish-pink to-squish-purple hover:opacity-95 text-white font-rounded font-bold py-4 px-8 rounded-2xl shadow-lg shadow-pink-200 hover:shadow-xl transition transform hover:-translate-y-0.5 text-center">
+
+                        Shop Our Collection
+
+                        <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
+
                     </a>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Store Configuration Modal -->
-    <div id="config-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-pink-100">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="font-rounded font-bold text-lg text-slate-800">Configure WhatsApp Number</h3>
-                <button onclick="toggleStoreConfig()" class="text-slate-400 hover:text-slate-600 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <p class="text-xs text-slate-500 mb-4">Enter your South African WhatsApp phone number to receive pre-filled customer orders directly into your chat.</p>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Business Number (With Country Code)</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 font-mono text-sm">+</span>
-                        <input type="text" id="store-phone-input" value="27821234567" placeholder="27821234567" class="w-full pl-7 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink text-sm font-mono">
-                    </div>
-                    <span class="text-[11px] text-slate-400 mt-1 block">Example: 27821234567 (No spaces or + symbol)</span>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Currency Symbol</label>
-                    <input type="text" id="store-currency-input" value="R" class="w-full px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink text-sm font-bold">
-                </div>
-                <button onclick="saveStoreConfig()" class="w-full bg-squish-purple hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition shadow-md">
-                    Save Configuration
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Hero Banner -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-squish-bg via-white to-slate-50 pt-10 pb-16 lg:pt-16 lg:pb-24">
-        <!-- Floating Decorative Blobs -->
-        <div class="absolute top-12 left-10 w-32 h-32 bg-squish-yellow/40 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="absolute top-1/2 right-5 w-48 h-48 bg-squish-mint/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 left-1/3 w-40 h-40 bg-squish-softpink rounded-full blur-2xl pointer-events-none"></div>
+                    <a href="#cart"
+                       class="w-full sm:w-auto bg-white border-2 border-slate-200 hover:border-squish-pink text-slate-700 font-rounded font-bold py-3.5 px-6 rounded-2xl transition text-center flex items-center justify-center gap-2">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Content -->
-                <div class="text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-white/90 border border-pink-200 px-4 py-1.5 rounded-full text-xs font-bold text-squish-pink shadow-sm">
-                        <span class="flex h-2 w-2 rounded-full bg-squish-pink animate-ping"></span>
-                        <span>Official SA Sensory & Fidget Store</span>
-                    </div>
+                        <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
 
-                    <h1 class="font-rounded text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
-                        Super Squishy. <br>
-                        <span class="bg-gradient-to-r from-squish-pink via-squish-purple to-squish-mint bg-clip-text text-transparent">Ultra Satisfying!</span>
-                    </h1>
+                        <span>Direct Order Link</span>
 
-                    <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Discover South Africa's favorite sensory stress balls, squishy dumplings, and authentic NeeDoh toys. Perfect for calm play, stress relief, and endless fidget fun!
-                    </p>
+                    </a>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#products" class="w-full sm:w-auto bg-gradient-to-r from-squish-pink to-squish-purple hover:opacity-95 text-white font-rounded font-bold py-4 px-8 rounded-2xl shadow-lg shadow-pink-200 hover:shadow-xl transition transform hover:-translate-y-0.5 text-center">
-                            Shop Our Collection <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
-                        </a>
-                        <a href="#cart" class="w-full sm:w-auto bg-white border-2 border-slate-200 hover:border-squish-pink text-slate-700 font-rounded font-bold py-3.5 px-6 rounded-2xl transition text-center flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
-                            <span>Direct Order Link</span>
-                        </a>
-                    </div>
-
-                    <!-- Trust Bar Badges -->
-                    <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-2 text-center sm:text-left">
-                        <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
-                            <i class="fa-solid fa-truck-fast text-squish-pink"></i>
-                            <span>SA Courier (1-3 Days)</span>
-                        </div>
-                        <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
-                            <i class="fa-solid fa-shield-heart text-squish-purple"></i>
-                            <span>100% Child Safe</span>
-                        </div>
-                        <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
-                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-                            <span>Verified WhatsApp Order</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Right Visual Hero Box -->
-                <div class="relative flex justify-center">
-                    <div class="w-full max-w-md aspect-square bg-gradient-to-tr from-squish-softpink via-white to-amber-50 rounded-3xl p-6 shadow-2xl border border-white/80 relative flex items-center justify-center">
-                        <!-- Hero Product Card Overlay -->
-                        <div class="absolute -top-4 -right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-bolt"></i>
-                            </span>
-                            <div>
-                                <p class="text-[10px] text-slate-400 font-semibold uppercase">Popular Item</p>
-                                <p class="text-xs font-bold text-slate-800">Dumpling Steamer Set</p>
-                            </div>
-                        </div>
 
-                        <!-- Main Image Illustration/Placeholder -->
-                        <div class="text-center space-y-4">
-                            <div class="relative inline-block">
-                                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=80" alt="Squishy Toy Set" class="w-72 h-72 object-cover rounded-2xl shadow-md border-4 border-white transform -rotate-2 hover:rotate-0 transition duration-300">
-                                <span class="absolute -bottom-3 -left-3 bg-squish-yellow text-slate-900 font-black text-xs px-3 py-1.5 rounded-xl shadow-md uppercase tracking-wider">
-                                    Top Seller
-                                </span>
-                            </div>
-                        </div>
+                <!-- Trust Bar -->
+                <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-2 text-center sm:text-left">
 
-                        <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-2">
-                            <i class="fa-solid fa-star text-amber-400 text-sm"></i>
-                            <span class="text-xs font-bold text-slate-700">4.9/5 Rating (200+ SA Parents)</span>
-                        </div>
-                    </div>
-                </div>
+                    <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
 
-            </div>
-        </div>
-    </section>
+                        <i class="fa-solid fa-truck-fast text-squish-pink"></i>
 
-    <!-- Products Catalog Section -->
-    <section id="products" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-squish-purple font-rounded font-bold text-sm tracking-wide uppercase bg-purple-50 px-3 py-1 rounded-full">Sensory Toy Catalog</span>
-                <h2 class="font-rounded text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Pick Your Squishies</h2>
-                <p class="text-slate-500 text-sm mt-2">Select quantity and order instantly via WhatsApp or add multiple products to your combined cart below.</p>
-            </div>
+                        <span>Estimated Delivery 5-7 Days</span>
 
-            <!-- Product Grid -->
-            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- JavaScript will dynamically render product cards here -->
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Order Summary / Cart Section -->
-    <section id="cart" class="py-16 bg-gradient-to-b from-slate-50 to-squish-bg border-t border-b border-pink-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl border border-white">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-slate-200 pb-4">
-                    <div>
-                        <h2 class="font-rounded font-bold text-2xl text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-basket-shopping text-squish-pink"></i>
-                            <span>Multi-Item WhatsApp Order Builder</span>
-                        </h2>
-                        <p class="text-xs text-slate-500 mt-1">Combine several items into one pre-formatted WhatsApp order link</p>
-                    </div>
-                    <button onclick="clearCart()" class="text-xs text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-trash-can"></i> Clear All
-                    </button>
-                </div>
-
-                <!-- Selected Items List -->
-                <div id="cart-items-container" class="space-y-3 mb-6 min-h-[100px] flex flex-col justify-center">
-                    <!-- Populated via JavaScript -->
-                </div>
-
-                <!-- Customer Details Form for WhatsApp Message -->
-                <div class="bg-white/70 p-4 rounded-2xl border border-slate-200/80 mb-6 space-y-3">
-                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Delivery Details (Optional pre-fill)</h4>
-                    <div class="grid sm:grid-cols-2 gap-3">
-                        <input type="text" id="cust-name" placeholder="Your Name" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink">
-                        <input type="text" id="cust-city" placeholder="City / Suburb (e.g., Sandton, Cape Town)" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink">
-                    </div>
-                </div>
-
-                <!-- Pricing Calculation Bar -->
-                <div class="bg-slate-900 text-white p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 shadow-md">
-                    <div>
-                        <p class="text-xs text-slate-400">Total Order Estimate</p>
-                        <p class="font-rounded text-2xl font-bold text-squish-yellow" id="cart-total-price">R0.00</p>
-                        <span class="text-[10px] text-slate-400">*Excludes courier fee (Calculated on WhatsApp)</span>
                     </div>
 
-                    <button onclick="sendMultiItemWhatsAppOrder()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-rounded font-bold py-3.5 px-6 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Send Full Order to WhatsApp</span>
-                    </button>
+
+                    <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
+
+                        <i class="fa-solid fa-shield-heart text-squish-purple"></i>
+
+                        <span>100% Child Safe</span>
+
+                    </div>
+
+
+                    <div class="flex items-center justify-center sm:justify-start gap-2 text-slate-600 text-xs font-semibold">
+
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+
+                        <span>WhatsApp Ordering</span>
+
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-    </section>
 
-    <!-- Trust Badges Section -->
-    <section id="trust" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <h2 class="font-rounded text-2xl sm:text-3xl font-bold text-slate-900">Why SA Parents & Kids Love Us</h2>
-                <p class="text-slate-500 text-xs mt-1">Safe, reliable, and verified ordering process</p>
-            </div>
+            <!-- Hero Image -->
+            <div class="relative flex justify-center">
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Badge 1 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-2xl bg-squish-softpink text-squish-pink flex items-center justify-center text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-box-open"></i>
-                    </div>
-                    <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">Doorstep Courier</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Fast delivery nationwide across SA using Courier Guy & Pudo locker services.</p>
-                </div>
+                <div class="w-full max-w-md aspect-square bg-gradient-to-tr from-squish-softpink via-white to-amber-50 rounded-3xl p-6 shadow-2xl border border-white/80 relative flex items-center justify-center">
 
-                <!-- Badge 2 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-100 text-squish-purple flex items-center justify-center text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-shield-virus"></i>
-                    </div>
-                    <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">Non-Toxic & Safe</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Made with non-toxic, kid-safe TPR squishy materials. Easy to wash with mild soap.</p>
-                </div>
+                    <!-- Popular Product -->
+                    <div class="absolute -top-4 -right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-3">
 
-                <!-- Badge 3 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mx-auto mb-4">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">WhatsApp Verification</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">No confusing checkout forms! Verify items, delivery address, and payment terms in real time.</p>
-                </div>
-
-                <!-- Badge 4 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-credit-card"></i>
-                    </div>
-                    <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">Flexible Payments</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Pay safely via Yoco Instant Link, SnapScan, or Direct Instant Bank EFT upon order confirmation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-16 bg-slate-50 border-t border-slate-100">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <h2 class="font-rounded text-2xl sm:text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
-                <p class="text-slate-500 text-xs mt-1">Everything you need to know about ordering</p>
-            </div>
-
-            <div class="space-y-4" id="faq-accordion">
-                <!-- FAQ Item 1 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
-                        <span>How does ordering via WhatsApp work?</span>
-                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                    </button>
-                    <div id="faq-ans-1" class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        When you click "Order via WhatsApp", a chat automatically opens with our official business line pre-filled with your chosen products and quantities. We then reply immediately with delivery options and payment links to finalize your order!
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
-                        <span>How much is shipping in South Africa?</span>
-                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                    </button>
-                    <div id="faq-ans-2" class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        Door-to-door courier via Courier Guy is usually R70 - R90 depending on your area. We also offer Pudo Locker-to-Locker delivery for around R60. Orders over R500 qualify for free shipping!
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
-                        <span>How do I clean sticky or dusty squishies?</span>
-                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                    </button>
-                    <div id="faq-ans-3" class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        Simply wash them under lukewarm water with mild hand soap! Once air-dried, dust them lightly with cornstarch or baby powder to make them super soft and non-sticky again.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
-                        <span>What payment methods do you accept?</span>
-                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                    </button>
-                    <div id="faq-ans-4" class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        We send secure Yoco card payment links, SnapScan QR codes, or direct bank EFT details directly inside our WhatsApp chat.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sticky Mobile WhatsApp Floating Action Bar -->
-    <div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-pink-100 p-3 z-30 md:hidden flex items-center justify-between shadow-lg">
-        <div>
-            <p class="text-[10px] text-slate-400 font-semibold uppercase">Need Help?</p>
-            <p class="text-xs font-bold text-slate-800">Chat with us on WhatsApp</p>
-        </div>
-        <button onclick="openDirectWhatsAppChat()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm">
-            <i class="fa-brands fa-whatsapp text-base"></i>
-            <span>Instant Chat</span>
-        </button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-xs border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <span class="font-rounded font-bold text-lg text-white block mb-2">Squishiverse.za</span>
-                    <p class="text-slate-400 leading-relaxed">
-                        South Africa's happiest online store for tactile squishy toys, NeeDoh stress balls, and sensory play fidgets.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Quick Links</h4>
-                    <ul class="space-y-1.5">
-                        <li><a href="#products" class="hover:text-white transition">Product Catalog</a></li>
-                        <li><a href="#trust" class="hover:text-white transition">Shipping Policy</a></li>
-                        <li><a href="#faq" class="hover:text-white transition">FAQs</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Contact & Support</h4>
-                    <p class="mb-1"><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> WhatsApp Orders & Inquiries</p>
-                    <p class="text-slate-500">Operating Hours: Mon - Fri (8am - 5pm)</p>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-6 text-center text-slate-500 text-[11px]">
-                &copy; <span id="year"></span> Squishiverse SA. All rights reserved. Built for fast WhatsApp Commerce.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Store Configuration State
-        let storeConfig = {
-            phone: '27821234567',
-            currency: 'R'
-        };
-
-        // Product Catalog Data
-        const products = [
-            {
-                id: 'p1',
-                name: 'Squishy Dumpling Steamer Set',
-                price: 65,
-                badge: 'Best Seller',
-                badgeColor: 'bg-squish-pink text-white',
-                image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?auto=format&fit=crop&w=500&q=80',
-                description: 'Super soft slow-rebound dumpling fidget inside a realistic mini bamboo steamer basket.'
-            },
-            {
-                id: 'p2',
-                name: 'NeeDoh Nice Cube Stress Ball',
-                price: 95,
-                badge: 'Trending',
-                badgeColor: 'bg-squish-purple text-white',
-                image: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500&q=80',
-                description: 'Firm yet squishy gel-filled translucent cube ball that always retains its shape.'
-            },
-            {
-                id: 'p3',
-                name: 'Mochi Squishy Animals (5-Pack)',
-                price: 85,
-                badge: 'Value Pack',
-                badgeColor: 'bg-squish-yellow text-slate-900',
-                image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=500&q=80',
-                description: 'Cute washable mini animal mochis in pastel colors. Perfect for party favors and fidgeting.'
-            },
-            {
-                id: 'p4',
-                name: 'Giant Sugar Ball Sensory Squishy',
-                price: 110,
-                badge: 'Super Satisfying',
-                badgeColor: 'bg-squish-mint text-slate-900',
-                image: 'https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=500&q=80',
-                description: 'Heavyweight crunch & squish feel filled with dense gel syrup for ultimate calming tactile feedback.'
-            },
-            {
-                id: 'p5',
-                name: 'Butter Slime & Squishy Combo',
-                price: 120,
-                badge: 'New Arrival',
-                badgeColor: 'bg-emerald-500 text-white',
-                image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=500&q=80',
-                description: 'Smooth scented stretch butter slime paired with a matching charm squishy toy.'
-            },
-            {
-                id: 'p6',
-                name: 'Glitter Gel Clear Dumpling',
-                price: 55,
-                badge: 'Sparkle Edition',
-                badgeColor: 'bg-pink-400 text-white',
-                image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80',
-                description: 'Transparent liquid gel filled dumpling squishy packed with shimmering glitter confetti.'
-            }
-        ];
-
-        // Cart State
-        let cart = {};
-
-        // On Page Load Initialization
-        window.onload = function() {
-            document.getElementById('year').innerText = new Date().getFullYear();
-            renderProducts();
-            updateCartUI();
-        };
-
-        // Render Product Cards Dynamically
-        function renderProducts() {
-            const container = document.getElementById('product-grid');
-            container.innerHTML = products.map(product => `
-                <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                    <!-- Image Box -->
-                    <div class="relative h-52 overflow-hidden bg-slate-100">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <span class="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm ${product.badgeColor}">
-                            ${product.badge}
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-bolt"></i>
                         </span>
-                    </div>
 
-                    <!-- Content -->
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
                         <div>
-                            <div class="flex justify-between items-start gap-2 mb-1">
-                                <h3 class="font-rounded font-bold text-lg text-slate-800 leading-snug">${product.name}</h3>
-                                <span class="font-rounded font-extrabold text-base text-squish-purple whitespace-nowrap">${storeConfig.currency}${product.price}</span>
-                            </div>
-                            <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
+
+                            <p class="text-[10px] text-slate-400 font-semibold uppercase">
+                                Popular Item
+                            </p>
+
+                            <p class="text-xs font-bold text-slate-800">
+                                Dumpling Steamer Set
+                            </p>
+
                         </div>
 
-                        <!-- Action Bar -->
-                        <div class="pt-3 border-t border-slate-100 space-y-3">
-                            <!-- Quantity Selector -->
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-slate-600">Quantity:</span>
-                                <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
-                                    <button onclick="adjustQty('${product.id}', -1)" class="px-3 py-1 text-slate-600 hover:bg-slate-200 font-bold transition text-xs">-</button>
-                                    <span id="qty-${product.id}" class="px-3 text-xs font-bold text-slate-800">1</span>
-                                    <button onclick="adjustQty('${product.id}', 1)" class="px-3 py-1 text-slate-600 hover:bg-slate-200 font-bold transition text-xs">+</button>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-2">
-                                <button onclick="addToCart('${product.id}')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-plus text-squish-purple"></i>
-                                    <span>Add To Cart</span>
-                                </button>
-                                <button onclick="orderSingleProductWhatsApp('${product.id}')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-sm flex items-center justify-center gap-1.5">
-                                    <i class="fa-brands fa-whatsapp text-sm"></i>
-                                    <span>Order Now</span>
-                                </button>
-                            </div>
-                        </div>
                     </div>
+
+
+                    <!-- Main Image -->
+                    <div class="text-center space-y-4">
+
+                        <div class="relative inline-block">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=80"
+                                alt="Squishy Toy Set"
+                                class="w-72 h-72 object-cover rounded-2xl shadow-md border-4 border-white transform -rotate-2 hover:rotate-0 transition duration-300">
+
+                            <span class="absolute -bottom-3 -left-3 bg-squish-yellow text-slate-900 font-black text-xs px-3 py-1.5 rounded-xl shadow-md uppercase tracking-wider">
+                                Top Seller
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rating -->
+                    <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-2">
+
+                        <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+
+                        <span class="text-xs font-bold text-slate-700">
+                            4.9/5 Rating
+                        </span>
+
+                    </div>
+
                 </div>
-            `).join('');
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCTS
+========================================================= -->
+
+<section id="products" class="py-16 bg-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+
+            <span class="text-squish-purple font-rounded font-bold text-sm tracking-wide uppercase bg-purple-50 px-3 py-1 rounded-full">
+                Sensory Toy Catalog
+            </span>
+
+            <h2 class="font-rounded text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
+                Pick Your Squishies
+            </h2>
+
+            <p class="text-slate-500 text-sm mt-2">
+                Select your quantity and order instantly via WhatsApp,
+                or add multiple products to your cart.
+            </p>
+
+        </div>
+
+
+        <div id="product-grid"
+             class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CART
+========================================================= -->
+
+<section id="cart"
+         class="py-16 bg-gradient-to-b from-slate-50 to-squish-bg border-t border-b border-pink-100">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl border border-white">
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-slate-200 pb-4">
+
+                <div>
+
+                    <h2 class="font-rounded font-bold text-2xl text-slate-900 flex items-center gap-2">
+
+                        <i class="fa-solid fa-basket-shopping text-squish-pink"></i>
+
+                        <span>WhatsApp Order Builder</span>
+
+                    </h2>
+
+                    <p class="text-xs text-slate-500 mt-1">
+                        Combine several items into one WhatsApp order.
+                    </p>
+
+                </div>
+
+
+                <button onclick="clearCart()"
+                        class="text-xs text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1">
+
+                    <i class="fa-solid fa-trash-can"></i>
+                    Clear All
+
+                </button>
+
+            </div>
+
+
+            <!-- Cart Items -->
+            <div id="cart-items-container"
+                 class="space-y-3 mb-6 min-h-[100px] flex flex-col justify-center">
+            </div>
+
+
+            <!-- Customer Details -->
+            <div class="bg-white/70 p-4 rounded-2xl border border-slate-200/80 mb-6 space-y-3">
+
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                    Delivery Details
+                </h4>
+
+                <div class="grid sm:grid-cols-2 gap-3">
+
+                    <input
+                        type="text"
+                        id="cust-name"
+                        placeholder="Your Name"
+                        class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink">
+
+                    <input
+                        type="text"
+                        id="cust-city"
+                        placeholder="City / Suburb"
+                        class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-squish-pink">
+
+                </div>
+
+            </div>
+
+
+            <!-- Order Total -->
+            <div class="bg-slate-900 text-white p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 shadow-md">
+
+                <div>
+
+                    <p class="text-xs text-slate-400">
+                        Total Order Estimate
+                    </p>
+
+                    <p class="font-rounded text-2xl font-bold text-squish-yellow"
+                       id="cart-total-price">
+                        R0.00
+                    </p>
+
+                    <span class="text-[10px] text-slate-400">
+                        *Excludes courier fee
+                    </span>
+
+                </div>
+
+
+                <button onclick="sendMultiItemWhatsAppOrder()"
+                        class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-rounded font-bold py-3.5 px-6 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+
+                    <span>Send Order to WhatsApp</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TRUST SECTION
+========================================================= -->
+
+<section id="trust" class="py-16 bg-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-xl mx-auto mb-12">
+
+            <h2 class="font-rounded text-2xl sm:text-3xl font-bold text-slate-900">
+                Why Customers Love Squishyville
+            </h2>
+
+            <p class="text-slate-500 text-xs mt-1">
+                Safe, reliable and simple ordering.
+            </p>
+
+        </div>
+
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Trust Card 1 -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
+
+                <div class="w-12 h-12 rounded-2xl bg-squish-softpink text-squish-pink flex items-center justify-center text-xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-box-open"></i>
+
+                </div>
+
+                <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">
+                    Doorstep Courier
+                </h3>
+
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Estimated delivery is 5-7 days depending on your location.
+                </p>
+
+            </div>
+
+
+            <!-- Trust Card 2 -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
+
+                <div class="w-12 h-12 rounded-2xl bg-purple-100 text-squish-purple flex items-center justify-center text-xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-shield-virus"></i>
+
+                </div>
+
+                <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">
+                    Quality Products
+                </h3>
+
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Carefully selected sensory toys for satisfying play and fidgeting.
+                </p>
+
+            </div>
+
+
+            <!-- Trust Card 3 -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
+
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mx-auto mb-4">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </div>
+
+                <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">
+                    WhatsApp Ordering
+                </h3>
+
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Order directly through WhatsApp with no complicated checkout process.
+                </p>
+
+            </div>
+
+
+            <!-- Trust Card 4 -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition">
+
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                </div>
+
+                <h3 class="font-rounded font-bold text-base text-slate-800 mb-1">
+                    Easy Payments
+                </h3>
+
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Payment options and details will be confirmed through WhatsApp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section id="faq" class="py-16 bg-slate-50 border-t border-slate-100">
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-10">
+
+            <h2 class="font-rounded text-2xl sm:text-3xl font-bold text-slate-900">
+                Frequently Asked Questions
+            </h2>
+
+            <p class="text-slate-500 text-xs mt-1">
+                Everything you need to know about ordering.
+            </p>
+
+        </div>
+
+
+        <div class="space-y-4">
+
+            <!-- FAQ 1 -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+
+                <button onclick="toggleFaq(1)"
+                        class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
+
+                    <span>
+                        How does ordering via WhatsApp work?
+                    </span>
+
+                    <i id="faq-icon-1"
+                       class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform">
+                    </i>
+
+                </button>
+
+
+                <div id="faq-ans-1"
+                     class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+
+                    Choose your products, select your quantities and click
+                    "Send Order to WhatsApp". Your order will open in WhatsApp
+                    ready for us to confirm stock, delivery and payment details.
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 2 -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+
+                <button onclick="toggleFaq(2)"
+                        class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
+
+                    <span>
+                        How long does delivery take?
+                    </span>
+
+                    <i id="faq-icon-2"
+                       class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform">
+                    </i>
+
+                </button>
+
+
+                <div id="faq-ans-2"
+                     class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+
+                    Estimated delivery is 5-7 days depending on your location
+                    and courier service. The exact delivery cost will be
+                    confirmed through WhatsApp.
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 3 -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+
+                <button onclick="toggleFaq(3)"
+                        class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
+
+                    <span>
+                        How do I clean my squishies?
+                    </span>
+
+                    <i id="faq-icon-3"
+                       class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform">
+                    </i>
+
+                </button>
+
+
+                <div id="faq-ans-3"
+                     class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+
+                    Clean your squishies gently with lukewarm water and mild
+                    soap. Allow them to air dry completely before storing.
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 4 -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+
+                <button onclick="toggleFaq(4)"
+                        class="w-full px-6 py-4 text-left font-rounded font-bold text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50">
+
+                    <span>
+                        What payment methods do you accept?
+                    </span>
+
+                    <i id="faq-icon-4"
+                       class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform">
+                    </i>
+
+                </button>
+
+
+                <div id="faq-ans-4"
+                     class="hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+
+                    Payment details and available payment methods will be
+                    confirmed directly through WhatsApp when your order is placed.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MOBILE WHATSAPP BAR
+========================================================= -->
+
+<div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-pink-100 p-3 z-30 md:hidden flex items-center justify-between shadow-lg">
+
+    <div>
+
+        <p class="text-[10px] text-slate-400 font-semibold uppercase">
+            Need Help?
+        </p>
+
+        <p class="text-xs font-bold text-slate-800">
+            Chat with Squishyville
+        </p>
+
+    </div>
+
+
+    <button onclick="openDirectWhatsAppChat()"
+            class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm">
+
+        <i class="fa-brands fa-whatsapp text-base"></i>
+
+        <span>WhatsApp</span>
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-slate-900 text-slate-400 py-12 text-xs border-t border-slate-800">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+
+            <!-- Brand -->
+            <div>
+
+                <span class="font-rounded font-bold text-lg text-white block mb-2">
+                    Squishyville
+                </span>
+
+                <p class="text-slate-400 leading-relaxed">
+                    South Africa's online store for fun squishy toys,
+                    sensory products and fidget toys.
+                </p>
+
+            </div>
+
+
+            <!-- Links -->
+            <div>
+
+                <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">
+                    Quick Links
+                </h4>
+
+                <ul class="space-y-1.5">
+
+                    <li>
+                        <a href="#products" class="hover:text-white transition">
+                            Product Catalog
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#trust" class="hover:text-white transition">
+                            Delivery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#faq" class="hover:text-white transition">
+                            FAQs
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Contact -->
+            <div>
+
+                <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">
+                    Contact & Support
+                </h4>
+
+                <p class="mb-1">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i>
+                    WhatsApp Orders & Inquiries
+                </p>
+
+                <p class="text-slate-500">
+                    Estimated Delivery: 5-7 Days
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="border-t border-slate-800 pt-6 text-center text-slate-500 text-[11px]">
+
+            &copy;
+            <span id="year"></span>
+            Squishyville. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /*
+     * ========================================================
+     * STORE SETTINGS
+     * ========================================================
+     */
+
+    const STORE_PHONE = '27695960025';
+    const CURRENCY = 'R';
+
+
+    /*
+     * ========================================================
+     * PRODUCT CATALOG
+     * ========================================================
+     */
+
+    const products = [
+
+        {
+            id: 'p1',
+            name: 'Squishy Dumpling Steamer Set',
+            price: 65,
+            badge: 'Best Seller',
+            badgeColor: 'bg-squish-pink text-white',
+            image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?auto=format&fit=crop&w=500&q=80',
+            description: 'Super soft slow-rebound dumpling fidget inside a realistic mini bamboo steamer basket.'
+        },
+
+        {
+            id: 'p2',
+            name: 'NeeDoh Nice Cube Stress Ball',
+            price: 95,
+            badge: 'Trending',
+            badgeColor: 'bg-squish-purple text-white',
+            image: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500&q=80',
+            description: 'Firm yet squishy gel-filled translucent cube ball that always retains its shape.'
+        },
+
+        {
+            id: 'p3',
+            name: 'Mochi Squishy Animals (5-Pack)',
+            price: 85,
+            badge: 'Value Pack',
+            badgeColor: 'bg-squish-yellow text-slate-900',
+            image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=500&q=80',
+            description: 'Cute washable mini animal mochis in pastel colors. Perfect for party favors and fidgeting.'
+        },
+
+        {
+            id: 'p4',
+            name: 'Giant Sugar Ball Sensory Squishy',
+            price: 110,
+            badge: 'Super Satisfying',
+            badgeColor: 'bg-squish-mint text-slate-900',
+            image: 'https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=500&q=80',
+            description: 'Heavyweight crunch and squish feel filled with dense gel for satisfying tactile feedback.'
+        },
+
+        {
+            id: 'p5',
+            name: 'Butter Slime & Squishy Combo',
+            price: 120,
+            badge: 'New Arrival',
+            badgeColor: 'bg-emerald-500 text-white',
+            image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=500&q=80',
+            description: 'Smooth scented stretch butter slime paired with a matching charm squishy toy.'
+        },
+
+        {
+            id: 'p6',
+            name: 'Glitter Gel Clear Dumpling',
+            price: 55,
+            badge: 'Sparkle Edition',
+            badgeColor: 'bg-pink-400 text-white',
+            image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80',
+            description: 'Transparent liquid gel-filled dumpling squishy packed with shimmering glitter confetti.'
         }
 
-        // Quantity Adjuster helper
-        function adjustQty(productId, change) {
-            const qtyElement = document.getElementById(`qty-${productId}`);
-            let current = parseInt(qtyElement.innerText);
-            current = Math.max(1, current + change);
-            qtyElement.innerText = current;
-        }
+    ];
 
-        // Add Product to Cart State
-        function addToCart(productId) {
-            const qty = parseInt(document.getElementById(`qty-${productId}`).innerText);
-            if (cart[productId]) {
-                cart[productId] += qty;
-            } else {
-                cart[productId] = qty;
-            }
-            updateCartUI();
-            
-            // Scroll smoothly to cart section or alert feedback
-            const cartSection = document.getElementById('cart');
-            cartSection.scrollIntoView({ behavior: 'smooth' });
-        }
 
-        // Update Cart UI List & Totals
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            const cartKeys = Object.keys(cart);
-            let total = 0;
-            let itemCount = 0;
+    /*
+     * ========================================================
+     * CART
+     * ========================================================
+     */
 
-            if (cartKeys.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-6 text-slate-400">
-                        <i class="fa-solid fa-basket-shopping text-3xl mb-2 text-slate-300"></i>
-                        <p class="text-xs">Your multi-item cart is currently empty.</p>
-                        <p class="text-[11px] text-slate-400">Add products above or order directly via individual WhatsApp buttons.</p>
+    let cart = {};
+
+
+    /*
+     * ========================================================
+     * PAGE INITIALIZATION
+     * ========================================================
+     */
+
+    window.onload = function () {
+
+        document.getElementById('year').innerText =
+            new Date().getFullYear();
+
+        renderProducts();
+
+        updateCartUI();
+
+    };
+
+
+    /*
+     * ========================================================
+     * PRODUCT RENDERING
+     * ========================================================
+     */
+
+    function renderProducts() {
+
+        const container =
+            document.getElementById('product-grid');
+
+        container.innerHTML = products.map(product => `
+
+            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+
+                <div class="relative h-52 overflow-hidden bg-slate-100">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+
+                    <span class="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm ${product.badgeColor}">
+                        ${product.badge}
+                    </span>
+
+                </div>
+
+
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+
+                    <div>
+
+                        <div class="flex justify-between items-start gap-2 mb-1">
+
+                            <h3 class="font-rounded font-bold text-lg text-slate-800 leading-snug">
+                                ${product.name}
+                            </h3>
+
+                            <span class="font-rounded font-extrabold text-base text-squish-purple whitespace-nowrap">
+                                ${CURRENCY}${product.price}
+                            </span>
+
+                        </div>
+
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            ${product.description}
+                        </p>
+
                     </div>
-                `;
-                document.getElementById('cart-count-badge').classList.add('hidden');
-            } else {
-                container.innerHTML = cartKeys.map(id => {
-                    const item = products.find(p => p.id === id);
-                    const qty = cart[id];
-                    const itemTotal = item.price * qty;
+
+
+                    <div class="pt-3 border-t border-slate-100 space-y-3">
+
+                        <!-- Quantity -->
+                        <div class="flex items-center justify-between">
+
+                            <span class="text-xs font-bold text-slate-600">
+                                Quantity:
+                            </span>
+
+                            <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
+
+                                <button
+                                    onclick="adjustQty('${product.id}', -1)"
+                                    class="px-3 py-1 text-slate-600 hover:bg-slate-200 font-bold transition text-xs">
+                                    -
+                                </button>
+
+                                <span
+                                    id="qty-${product.id}"
+                                    class="px-3 text-xs font-bold text-slate-800">
+                                    1
+                                </span>
+
+                                <button
+                                    onclick="adjustQty('${product.id}', 1)"
+                                    class="px-3 py-1 text-slate-600 hover:bg-slate-200 font-bold transition text-xs">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Buttons -->
+                        <div class="grid grid-cols-2 gap-2">
+
+                            <button
+                                onclick="addToCart('${product.id}')"
+                                class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5">
+
+                                <i class="fa-solid fa-plus text-squish-purple"></i>
+
+                                <span>Add To Cart</span>
+
+                            </button>
+
+
+                            <button
+                                onclick="orderSingleProductWhatsApp('${product.id}')"
+                                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-sm flex items-center justify-center gap-1.5">
+
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+
+                                <span>Order Now</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `).join('');
+
+    }
+
+
+    /*
+     * ========================================================
+     * QUANTITY
+     * ========================================================
+     */
+
+    function adjustQty(productId, change) {
+
+        const qtyElement =
+            document.getElementById(`qty-${productId}`);
+
+        let current =
+            parseInt(qtyElement.innerText);
+
+        current =
+            Math.max(1, current + change);
+
+        qtyElement.innerText = current;
+
+    }
+
+
+    /*
+     * ========================================================
+     * ADD TO CART
+     * ========================================================
+     */
+
+    function addToCart(productId) {
+
+        const qty =
+            parseInt(
+                document.getElementById(`qty-${productId}`).innerText
+            );
+
+        if (cart[productId]) {
+
+            cart[productId] += qty;
+
+        } else {
+
+            cart[productId] = qty;
+
+        }
+
+        updateCartUI();
+
+        document
+            .getElementById('cart')
+            .scrollIntoView({ behavior: 'smooth' });
+
+    }
+
+
+    /*
+     * ========================================================
+     * UPDATE CART
+     * ========================================================
+     */
+
+    function updateCartUI() {
+
+        const container =
+            document.getElementById('cart-items-container');
+
+        const cartKeys =
+            Object.keys(cart);
+
+        let total = 0;
+        let itemCount = 0;
+
+
+        if (cartKeys.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="text-center py-6 text-slate-400">
+
+                    <i class="fa-solid fa-basket-shopping text-3xl mb-2 text-slate-300"></i>
+
+                    <p class="text-xs">
+                        Your cart is currently empty.
+                    </p>
+
+                    <p class="text-[11px] text-slate-400">
+                        Add products above or order directly via WhatsApp.
+                    </p>
+
+                </div>
+
+            `;
+
+            document
+                .getElementById('cart-count-badge')
+                .classList.add('hidden');
+
+        } else {
+
+            container.innerHTML =
+                cartKeys.map(id => {
+
+                    const item =
+                        products.find(p => p.id === id);
+
+                    const qty =
+                        cart[id];
+
+                    const itemTotal =
+                        item.price * qty;
+
                     total += itemTotal;
                     itemCount += qty;
 
+
                     return `
+
                         <div class="flex items-center justify-between bg-white p-3 rounded-2xl border border-slate-200/80 shadow-sm text-xs">
+
                             <div class="flex items-center gap-3">
-                                <img src="${item.image}" class="w-10 h-10 object-cover rounded-xl border">
+
+                                <img
+                                    src="${item.image}"
+                                    alt="${item.name}"
+                                    class="w-10 h-10 object-cover rounded-xl border">
+
                                 <div>
-                                    <p class="font-bold text-slate-800">${item.name}</p>
-                                    <p class="text-[11px] text-slate-500">${storeConfig.currency}${item.price} × ${qty}</p>
+
+                                    <p class="font-bold text-slate-800">
+                                        ${item.name}
+                                    </p>
+
+                                    <p class="text-[11px] text-slate-500">
+                                        ${CURRENCY}${item.price} × ${qty}
+                                    </p>
+
                                 </div>
+
                             </div>
+
+
                             <div class="flex items-center gap-3">
-                                <span class="font-extrabold text-squish-purple text-sm">${storeConfig.currency}${itemTotal}</span>
-                                <button onclick="removeFromCart('${id}')" class="text-rose-400 hover:text-rose-600 p-1">
+
+                                <span class="font-extrabold text-squish-purple text-sm">
+                                    ${CURRENCY}${itemTotal}
+                                </span>
+
+                                <button
+                                    onclick="removeFromCart('${id}')"
+                                    class="text-rose-400 hover:text-rose-600 p-1">
+
                                     <i class="fa-solid fa-xmark"></i>
+
                                 </button>
+
                             </div>
+
                         </div>
+
                     `;
+
                 }).join('');
 
-                const badge = document.getElementById('cart-count-badge');
-                badge.innerText = itemCount;
-                badge.classList.remove('hidden');
-            }
 
-            document.getElementById('cart-total-price').innerText = `${storeConfig.currency}${total.toFixed(2)}`;
+            const badge =
+                document.getElementById('cart-count-badge');
+
+            badge.innerText = itemCount;
+
+            badge.classList.remove('hidden');
+
         }
 
-        function removeFromCart(id) {
-            delete cart[id];
-            updateCartUI();
+
+        document.getElementById('cart-total-price').innerText =
+            `${CURRENCY}${total.toFixed(2)}`;
+
+    }
+
+
+    /*
+     * ========================================================
+     * REMOVE / CLEAR CART
+     * ========================================================
+     */
+
+    function removeFromCart(id) {
+
+        delete cart[id];
+
+        updateCartUI();
+
+    }
+
+
+    function clearCart() {
+
+        cart = {};
+
+        updateCartUI();
+
+    }
+
+
+    /*
+     * ========================================================
+     * SINGLE PRODUCT WHATSAPP ORDER
+     * ========================================================
+     */
+
+    function orderSingleProductWhatsApp(productId) {
+
+        const product =
+            products.find(p => p.id === productId);
+
+        const qty =
+            parseInt(
+                document.getElementById(`qty-${productId}`).innerText
+            );
+
+        const totalPrice =
+            product.price * qty;
+
+
+        const message =
+            `Hi! 🧸 I would like to order from Squishyville:\n\n` +
+
+            `• *${product.name}*\n` +
+
+            `  Quantity: ${qty}\n` +
+
+            `  Total Price: ${CURRENCY}${totalPrice}\n\n` +
+
+            `Please let me know the delivery and payment details to complete my order!`;
+
+
+        openWhatsApp(message);
+
+    }
+
+
+    /*
+     * ========================================================
+     * MULTI-PRODUCT WHATSAPP ORDER
+     * ========================================================
+     */
+
+    function sendMultiItemWhatsAppOrder() {
+
+        const cartKeys =
+            Object.keys(cart);
+
+        if (cartKeys.length === 0) {
+
+            alert(
+                'Please add at least one item to your cart before sending your order.'
+            );
+
+            return;
+
         }
 
-        function clearCart() {
-            cart = {};
-            updateCartUI();
+
+        const custName =
+            document.getElementById('cust-name')
+                .value.trim();
+
+        const custCity =
+            document.getElementById('cust-city')
+                .value.trim();
+
+
+        let itemsListStr = '';
+        let total = 0;
+
+
+        cartKeys.forEach(id => {
+
+            const item =
+                products.find(p => p.id === id);
+
+            const qty =
+                cart[id];
+
+            const itemTotal =
+                item.price * qty;
+
+            total += itemTotal;
+
+            itemsListStr +=
+                `• ${qty}x *${item.name}* (${CURRENCY}${itemTotal})\n`;
+
+        });
+
+
+        let message =
+            `Hi! 🧸 I would like to place a new order with Squishyville:\n\n` +
+
+            `*Order Items:*\n` +
+
+            `${itemsListStr}\n` +
+
+            `*Subtotal:* ${CURRENCY}${total.toFixed(2)}\n\n`;
+
+
+        if (custName) {
+
+            message +=
+                `*Name:* ${custName}\n`;
+
         }
 
-        // Direct WhatsApp order for a single product card
-        function orderSingleProductWhatsApp(productId) {
-            const product = products.find(p => p.id === productId);
-            const qty = parseInt(document.getElementById(`qty-${productId}`).innerText);
-            const totalPrice = product.price * qty;
 
-            const message = `Hi! 🧸 I would like to order from your store:\n\n` +
-                            `• *${product.name}*\n` +
-                            `  Quantity: ${qty}\n` +
-                            `  Total Price: ${storeConfig.currency}${totalPrice}\n\n` +
-                            `Please let me know courier & payment details to complete my order!`;
+        if (custCity) {
 
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${storeConfig.phone}?text=${encodedMessage}`, '_blank');
+            message +=
+                `*Delivery Area:* ${custCity}\n`;
+
         }
 
-        // Send multi-item cart order via WhatsApp
-        function sendMultiItemWhatsAppOrder() {
-            const cartKeys = Object.keys(cart);
-            if (cartKeys.length === 0) {
-                alert('Please add at least one item to your cart builder before sending!');
-                return;
-            }
 
-            const custName = document.getElementById('cust-name').value.trim();
-            const custCity = document.getElementById('cust-city').value.trim();
+        message +=
+            `\n*Estimated Delivery:* 5-7 days\n\n` +
 
-            let itemsListStr = '';
-            let total = 0;
+            `Please confirm stock availability, delivery cost and payment options.`;
 
-            cartKeys.forEach(id => {
-                const item = products.find(p => p.id === id);
-                const qty = cart[id];
-                const itemTotal = item.price * qty;
-                total += itemTotal;
-                itemsListStr += `• ${qty}x *${item.name}* (${storeConfig.currency}${itemTotal})\n`;
-            });
 
-            let message = `Hi! 🧸 I would like to place a new order:\n\n` +
-                          `*Order Items:*\n${itemsListStr}\n` +
-                          `*Subtotal:* ${storeConfig.currency}${total.toFixed(2)}\n\n`;
+        openWhatsApp(message);
 
-            if (custName) message += `*Name:* ${custName}\n`;
-            if (custCity) message += `*Delivery Area:* ${custCity}\n\n`;
+    }
 
-            message += `Please confirm stock availability and send payment/delivery options!`;
 
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${storeConfig.phone}?text=${encodedMessage}`, '_blank');
+    /*
+     * ========================================================
+     * WHATSAPP HELPER
+     * ========================================================
+     */
+
+    function openWhatsApp(message) {
+
+        const encodedMessage =
+            encodeURIComponent(message);
+
+        window.open(
+            `https://wa.me/${STORE_PHONE}?text=${encodedMessage}`,
+            '_blank'
+        );
+
+    }
+
+
+    /*
+     * ========================================================
+     * DIRECT WHATSAPP CHAT
+     * ========================================================
+     */
+
+    function openDirectWhatsAppChat() {
+
+        const message =
+            'Hi! 🧸 I am browsing Squishyville and have a question about your products.';
+
+        openWhatsApp(message);
+
+    }
+
+
+    /*
+     * ========================================================
+     * FAQ ACCORDION
+     * ========================================================
+     */
+
+    function toggleFaq(index) {
+
+        const answer =
+            document.getElementById(`faq-ans-${index}`);
+
+        const icon =
+            document.getElementById(`faq-icon-${index}`);
+
+
+        if (answer.classList.contains('hidden')) {
+
+            answer.classList.remove('hidden');
+
+            icon.classList.add('rotate-180');
+
+        } else {
+
+            answer.classList.add('hidden');
+
+            icon.classList.remove('rotate-180');
+
         }
 
-        function openDirectWhatsAppChat() {
-            const message = encodeURIComponent("Hi! 🧸 I am browsing your squishy store and have a general question.");
-            window.open(`https://wa.me/${storeConfig.phone}?text=${message}`, '_blank');
-        }
+    }
 
-        // Configuration Modal Functions
-        function toggleStoreConfig() {
-            const modal = document.getElementById('config-modal');
-            modal.classList.toggle('hidden');
-        }
+</script>
 
-        function saveStoreConfig() {
-            const phoneInput = document.getElementById('store-phone-input').value.trim().replace(/[^0-9]/g, '');
-            const currencyInput = document.getElementById('store-currency-input').value.trim();
-
-            if (!phoneInput) {
-                alert('Please enter a valid WhatsApp number.');
-                return;
-            }
-
-            storeConfig.phone = phoneInput;
-            storeConfig.currency = currencyInput || 'R';
-
-            renderProducts();
-            updateCartUI();
-            toggleStoreConfig();
-        }
-
-        // FAQ Toggle Accordion
-        function toggleFaq(index) {
-            const ans = document.getElementById(`faq-ans-${index}`);
-            const icon = document.getElementById(`faq-icon-${index}`);
-            
-            if (ans.classList.contains('hidden')) {
-                ans.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            } else {
-                ans.classList.add('hidden');
-                icon.classList.remove('rotate-180');
-            }
-        }
-    </script>
 </body>
 </html>
