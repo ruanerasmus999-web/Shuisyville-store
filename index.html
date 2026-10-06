@@ -1,419 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squishyville | Super Squishy. Ultra Satisfying!</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        squish: {
-                            pink: '#FF85A1',
-                            softpink: '#FFE5EC',
-                            purple: '#9B5DE5',
-                            mint: '#70D6FF',
-                            yellow: '#FFD670',
-                            peach: '#FF9770',
-                            bg: '#FFF0F5'
-                        }
-                    },
-                    fontFamily: {
-                        comfortaa: ['Comfortaa', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #FFF0F5;
-        }
-
-        h1, h2, h3, h4, .brand-font {
-            font-family: 'Comfortaa', sans-serif;
-        }
-
-        .product-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 35px rgba(155, 93, 229, 0.12);
-        }
-
-        .hero-blob {
-            border-radius: 48% 52% 63% 37% / 42% 38% 62% 58%;
-        }
-
-        .quantity-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            transition: 0.15s ease;
-        }
-
-        .quantity-btn:hover {
-            transform: scale(1.08);
-        }
-
-        .faq-content {
-            display: none;
-        }
-
-        .faq-content.open {
-            display: block;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squishyville | Super Squishy. Ultra Satisfying!</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{squish:{pink:'#FF85A1',softpink:'#FFE5EC',purple:'#9B5DE5',mint:'#70D6FF',yellow:'#FFD670',peach:'#FF9770',bg:'#FFF0F5'}},fontFamily:{comfortaa:['Comfortaa','sans-serif'],inter:['Inter','sans-serif']}}}};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+<style>
+body{font-family:'Inter',sans-serif;background:#FFF0F5}h1,h2,h3,h4,.brand-font{font-family:'Comfortaa',sans-serif}
+.product-card{transition:transform .2s ease,box-shadow .2s ease}.product-card:hover{transform:translateY(-5px);box-shadow:0 18px 35px rgba(155,93,229,.12)}
+.quantity-btn{width:32px;height:32px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-weight:700;transition:.15s ease}.quantity-btn:hover{transform:scale(1.08)}
+.faq-content{display:none}.faq-content.open{display:block}
+</style>
 </head>
-
 <body class="text-slate-800">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-pink-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16">
+<a href="#" class="flex items-center gap-2"><div class="w-10 h-10 rounded-2xl bg-squish-pink flex items-center justify-center text-white"><i class="fa-solid fa-heart"></i></div><span class="brand-font text-xl font-bold text-squish-purple">Squishyville</span></a>
+<nav class="hidden md:flex items-center gap-7 text-sm font-semibold"><a href="#products" class="hover:text-squish-purple">Products</a><a href="#why-us" class="hover:text-squish-purple">Why Us</a><a href="#faqs" class="hover:text-squish-purple">FAQs</a><a href="#cart" class="text-squish-purple"><i class="fa-solid fa-cart-shopping mr-1"></i>Order Summary</a></nav>
+<a href="#cart" class="md:hidden text-squish-purple text-lg"><i class="fa-solid fa-cart-shopping"></i></a>
+</div></div></header>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-pink-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="#" class="flex items-center gap-2">
-                    <div class="w-10 h-10 rounded-2xl bg-squish-pink flex items-center justify-center text-white shadow-sm">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <span class="brand-font text-xl font-bold text-squish-purple">Squishyville</span>
-                </a>
+<section class="relative overflow-hidden"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20"><div class="grid lg:grid-cols-2 gap-12 items-center">
+<div><div class="inline-flex items-center gap-2 bg-white border border-pink-100 rounded-full px-4 py-2 text-sm font-semibold text-squish-purple shadow-sm mb-5"><span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>South African Squishy Store</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">Super Squishy. <span class="text-squish-pink">Ultra Satisfying!</span></h1>
+<p class="mt-5 text-lg text-slate-600 max-w-xl leading-relaxed">Discover fun, satisfying squishies and Nee-doh favourites made for stress relief, collecting, gifting and just having fun.</p>
+<div class="flex flex-wrap gap-3 mt-7"><a href="#products" class="inline-flex items-center gap-2 bg-squish-purple hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-full">Shop Products <i class="fa-solid fa-arrow-down"></i></a><a href="#cart" class="inline-flex items-center gap-2 bg-white text-squish-purple border border-pink-200 font-bold px-6 py-3 rounded-full"><i class="fa-brands fa-whatsapp text-green-500"></i>Order on WhatsApp</a></div>
+<div class="grid grid-cols-3 gap-4 mt-9 max-w-lg"><div class="text-center"><div class="text-xl font-bold">11</div><div class="text-xs text-slate-500">Products</div></div><div class="text-center"><div class="text-xl font-bold">R50+</div><div class="text-xs text-slate-500">From</div></div><div class="text-center"><div class="text-xl font-bold">SA</div><div class="text-xs text-slate-500">Delivery</div></div></div></div>
+<div class="relative"><div class="absolute -top-8 -right-8 w-32 h-32 bg-squish-yellow rounded-full opacity-60"></div><div class="absolute -bottom-8 -left-8 w-40 h-40 bg-squish-mint rounded-full opacity-40"></div><div class="relative bg-white rounded-[2rem] p-4 shadow-2xl border border-pink-100"><div class="absolute top-6 left-6 z-10 bg-squish-pink text-white rounded-2xl px-4 py-2 shadow-lg"><div class="text-xs font-semibold uppercase">Featured</div><div class="font-bold">Normal Dumpling Squishy</div></div><img src="images/dumpling-squishy.jpg" alt="Normal Dumpling Squishy" class="w-full h-[380px] sm:h-[460px] object-contain rounded-[1.5rem] bg-squish-softpink" onerror="this.onerror=null;this.src='https://placehold.co/800x600/FFE5EC/9B5DE5?text=Normal+Dumpling+Squishy';"></div></div>
+</div></div></section>
 
-                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold">
-                    <a href="#products" class="hover:text-squish-purple transition">Products</a>
-                    <a href="#why-us" class="hover:text-squish-purple transition">Why Us</a>
-                    <a href="#faqs" class="hover:text-squish-purple transition">FAQs</a>
-                    <a href="#cart" class="text-squish-purple">
-                        <i class="fa-solid fa-cart-shopping mr-1"></i>
-                        Order Summary
-                    </a>
-                </nav>
+<section id="products" class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-10"><span class="inline-block bg-squish-softpink text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">Our Collection</span><h2 class="text-3xl sm:text-4xl font-bold">Pick Your Favourite Squishy</h2><p class="mt-3 text-slate-600">Browse our current collection and add your favourites to your order.</p></div>
+<div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+</div></section>
 
-                <a href="#cart" class="md:hidden text-squish-purple text-lg">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+<section id="cart" class="py-16 bg-squish-bg"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
+<div class="p-6 sm:p-8 border-b border-pink-100"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-2xl bg-squish-softpink text-squish-purple flex items-center justify-center"><i class="fa-solid fa-cart-shopping"></i></div><div><h2 class="text-2xl font-bold">Your Order</h2><p class="text-sm text-slate-500">Review your items before sending your order.</p></div></div></div>
+<div class="p-6 sm:p-8"><div id="cart-items" class="space-y-4"><div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div></div>
+<div class="border-t border-pink-100 mt-7 pt-6"><div class="flex items-center justify-between text-lg font-bold"><span>Estimated Total</span><span id="cart-total" class="text-squish-purple">R0</span></div><p class="text-xs text-slate-500 mt-2">Delivery cost can be confirmed when your order is arranged.</p></div>
+<div class="grid md:grid-cols-2 gap-4 mt-7"><div><label for="customer-name" class="block text-sm font-semibold mb-2">Your Name</label><input id="customer-name" type="text" placeholder="Enter your name" class="w-full rounded-xl border border-pink-200 px-4 py-3 outline-none focus:ring-2 focus:ring-squish-pink"></div><div><label for="customer-city" class="block text-sm font-semibold mb-2">City / Area</label><input id="customer-city" type="text" placeholder="Enter your city or area" class="w-full rounded-xl border border-pink-200 px-4 py-3 outline-none focus:ring-2 focus:ring-squish-pink"></div></div>
+<div class="flex flex-wrap gap-3 mt-7"><button onclick="sendWhatsAppOrder()" class="flex-1 min-w-[220px] bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-2xl"><i class="fa-brands fa-whatsapp mr-2"></i>Send Order on WhatsApp</button><button onclick="clearCart()" class="px-6 py-4 rounded-2xl border border-pink-200 text-slate-600 hover:bg-pink-50 font-semibold">Clear Cart</button></div>
+</div></div></div></section>
 
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+<section id="why-us" class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-2xl mx-auto mb-10"><span class="inline-block bg-squish-softpink text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">Why Squishyville?</span><h2 class="text-3xl sm:text-4xl font-bold">Simple. Fun. Easy.</h2><p class="mt-3 text-slate-600">Everything you need to make ordering your next squishy simple.</p></div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"><div class="bg-squish-softpink rounded-3xl p-6"><div class="w-12 h-12 rounded-2xl bg-white text-squish-purple flex items-center justify-center mb-4"><i class="fa-solid fa-truck"></i></div><h3 class="font-bold text-lg">Doorstep Courier</h3><p class="text-sm text-slate-600 mt-2">Convenient delivery options can be arranged for your order.</p></div><div class="bg-blue-50 rounded-3xl p-6"><div class="w-12 h-12 rounded-2xl bg-white text-blue-500 flex items-center justify-center mb-4"><i class="fa-solid fa-star"></i></div><h3 class="font-bold text-lg">Quality Products</h3><p class="text-sm text-slate-600 mt-2">Fun squishies selected for a satisfying experience.</p></div><div class="bg-purple-50 rounded-3xl p-6"><div class="w-12 h-12 rounded-2xl bg-white text-squish-purple flex items-center justify-center mb-4"><i class="fa-brands fa-whatsapp"></i></div><h3 class="font-bold text-lg">WhatsApp Ordering</h3><p class="text-sm text-slate-600 mt-2">Send your order directly through WhatsApp for easy communication.</p></div><div class="bg-yellow-50 rounded-3xl p-6"><div class="w-12 h-12 rounded-2xl bg-white text-yellow-600 flex items-center justify-center mb-4"><i class="fa-solid fa-wallet"></i></div><h3 class="font-bold text-lg">Easy Payments</h3><p class="text-sm text-slate-600 mt-2">Payment details can be confirmed with you when your order is processed.</p></div></div></div></section>
 
-                <div>
-                    <div class="inline-flex items-center gap-2 bg-white border border-pink-100 rounded-full px-4 py-2 text-sm font-semibold text-squish-purple shadow-sm mb-5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
-                        South African Squishy Store
-                    </div>
+<section id="faqs" class="py-16 bg-squish-bg"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><span class="inline-block bg-white text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">FAQs</span><h2 class="text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2></div><div class="space-y-3">
+<div class="bg-white rounded-2xl border border-pink-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold"><span>How do I place an order?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-content px-5 pb-5 text-slate-600 text-sm">Add products to your cart, enter your name and area, then tap the WhatsApp order button.</div></div>
+<div class="bg-white rounded-2xl border border-pink-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold"><span>How long does delivery take?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-content px-5 pb-5 text-slate-600 text-sm">The current estimated delivery time is 5–7 days, depending on your location and courier arrangements.</div></div>
+<div class="bg-white rounded-2xl border border-pink-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold"><span>Can I order more than one product?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-content px-5 pb-5 text-slate-600 text-sm">Yes. Add as many products as you would like and adjust quantities in your cart.</div></div>
+<div class="bg-white rounded-2xl border border-pink-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold"><span>How do I ask a question before ordering?</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-content px-5 pb-5 text-slate-600 text-sm">Use the WhatsApp button and send us your question.</div></div>
+</div></div></section>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
-                        Super Squishy.
-                        <span class="text-squish-pink">Ultra Satisfying!</span>
-                    </h1>
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur border-t border-pink-100"><button onclick="openWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-2xl"><i class="fa-brands fa-whatsapp mr-2"></i>Chat on WhatsApp</button></div>
+<footer class="bg-slate-900 text-white py-10 pb-24 md:pb-10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex flex-col md:flex-row items-center justify-between gap-5"><div><div class="brand-font text-xl font-bold">Squishyville</div><p class="text-slate-400 text-sm mt-1">Super Squishy. Ultra Satisfying!</p></div><div class="text-sm text-slate-400 text-center md:text-right"><p>© 2026 Squishyville. All rights reserved.</p><p class="mt-1">South Africa</p></div></div></div></footer>
 
-                    <p class="mt-5 text-lg text-slate-600 max-w-xl leading-relaxed">
-                        Discover fun, satisfying squishies and Nee-doh favourites made for stress relief, collecting, gifting and just having fun.
-                    </p>
+<script>
+const STORE_PHONE='27695960025';
+const products=[
+{id:'dumpling',name:'Normal Dumpling Squishy',price:50,image:'images/dumpling-squishy.jpg'},
+{id:'halloween-dumpling',name:'Halloween Dumpling',price:60,image:'images/halloween-dumpling.jpg'},
+{id:'butter',name:'Butter Squishy',price:60,image:'images/butter-squishy.jpg'},
+{id:'cheese',name:'Cheese Squishy',price:50,image:'images/cheese-squishy.jpg'},
+{id:'car-cubes',name:'Nee-doh Car Cubes',price:65,image:'images/needoh-carcube.jpg'},
+{id:'nice-cube',name:'Nee-doh Nice Cube (Hello Kitty)',price:85,image:'images/needoh-nicecube.jpg'},
+{id:'gold-bar',name:'Gold Bar Squishy',price:100,image:'images/gold-squishy.jpg'},
+{id:'mcdonalds',name:"McDonald's",price:110,image:'images/mcd-squishy.jpg'},
+{id:'butter-designs',name:'Butter Different Designs',price:80,image:'images/butter-design.jpg'},
+{id:'gummy-bear',name:'Gummy Bear Nee-doh',price:90,image:'images/bear-squishy.jpg'},
+{id:'pepsi',name:'Pepsi Nee-doh',price:90,image:'images/pepsi-squishy.jpg'}
+];
+let cart=JSON.parse(localStorage.getItem('squishyville-cart')||'[]');
 
-                    <div class="flex flex-wrap gap-3 mt-7">
-                        <a href="#products" class="inline-flex items-center justify-center gap-2 bg-squish-purple hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-full transition shadow-lg shadow-purple-200">
-                            Shop Products
-                            <i class="fa-solid fa-arrow-down"></i>
-                        </a>
-
-                        <a href="#cart" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-pink-50 text-squish-purple border border-pink-200 font-bold px-6 py-3 rounded-full transition">
-                            <i class="fa-brands fa-whatsapp text-green-500"></i>
-                            Order on WhatsApp
-                        </a>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-4 mt-9 max-w-lg">
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-slate-900">11+</div>
-                            <div class="text-xs text-slate-500">Products</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-slate-900">R50+</div>
-                            <div class="text-xs text-slate-500">From</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-slate-900">SA</div>
-                            <div class="text-xs text-slate-500">Delivery</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -top-8 -right-8 w-32 h-32 bg-squish-yellow rounded-full opacity-60"></div>
-                    <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-squish-mint rounded-full opacity-40"></div>
-
-                    <div class="relative bg-white rounded-[2rem] p-4 shadow-2xl shadow-pink-200 border border-pink-100">
-                        <div class="absolute top-6 left-6 z-10 bg-squish-pink text-white rounded-2xl px-4 py-2 shadow-lg">
-                            <div class="text-xs font-semibold uppercase tracking-wide">Featured</div>
-                            <div class="font-bold">Normal Dumpling Squishy</div>
-                        </div>
-
-                        <img
-                            src="images/dumpling-squishy.jpg"
-                            alt="Normal Dumpling Squishy"
-                            class="w-full h-[380px] sm:h-[460px] object-contain rounded-[1.5rem] bg-squish-softpink"
-                            onerror="this.onerror=null; this.src='https://placehold.co/800x600/FFE5EC/9B5DE5?text=Normal+Dumpling+Squishy';"
-                        >
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Products -->
-    <section id="products" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="inline-block bg-squish-softpink text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">
-                    Our Collection
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Pick Your Favourite Squishy</h2>
-                <p class="mt-3 text-slate-600">
-                    Browse our current collection and add your favourites to your order.
-                </p>
-            </div>
-
-            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </div>
-    </section>
-
-    <!-- Cart -->
-    <section id="cart" class="py-16 bg-squish-bg">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-xl shadow-pink-100 border border-pink-100 overflow-hidden">
-
-                <div class="p-6 sm:p-8 border-b border-pink-100">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-2xl bg-squish-softpink text-squish-purple flex items-center justify-center">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold">Your Order</h2>
-                            <p class="text-sm text-slate-500">Review your items before sending your order.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 sm:p-8">
-                    <div id="cart-items" class="space-y-4">
-                        <div class="text-center py-8 text-slate-500">
-                            <i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i>
-                            <p>Your cart is empty.</p>
-                            <a href="#products" class="inline-block mt-3 text-squish-purple font-bold hover:underline">Browse products</a>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-pink-100 mt-7 pt-6">
-                        <div class="flex items-center justify-between text-lg font-bold">
-                            <span>Estimated Total</span>
-                            <span id="cart-total" class="text-squish-purple">R0</span>
-                        </div>
-                        <p class="text-xs text-slate-500 mt-2">
-                            Delivery cost can be confirmed when your order is arranged.
-                        </p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4 mt-7">
-                        <div>
-                            <label for="customer-name" class="block text-sm font-semibold mb-2">Your Name</label>
-                            <input
-                                id="customer-name"
-                                type="text"
-                                placeholder="Enter your name"
-                                class="w-full rounded-xl border border-pink-200 px-4 py-3 outline-none focus:ring-2 focus:ring-squish-pink"
-                            >
-                        </div>
-
-                        <div>
-                            <label for="customer-city" class="block text-sm font-semibold mb-2">City / Area</label>
-                            <input
-                                id="customer-city"
-                                type="text"
-                                placeholder="Enter your city or area"
-                                class="w-full rounded-xl border border-pink-200 px-4 py-3 outline-none focus:ring-2 focus:ring-squish-pink"
-                            >
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 mt-7">
-                        <button
-                            onclick="sendWhatsAppOrder()"
-                            class="flex-1 min-w-[220px] bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-2xl transition shadow-lg shadow-green-100"
-                        >
-                            <i class="fa-brands fa-whatsapp mr-2"></i>
-                            Send Order on WhatsApp
-                        </button>
-
-                        <button
-                            onclick="clearCart()"
-                            class="px-6 py-4 rounded-2xl border border-pink-200 text-slate-600 hover:bg-pink-50 font-semibold transition"
-                        >
-                            Clear Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us -->
-    <section id="why-us" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="inline-block bg-squish-softpink text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">
-                    Why Squishyville?
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Simple. Fun. Easy.</h2>
-                <p class="mt-3 text-slate-600">Everything you need to make ordering your next squishy simple.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-squish-softpink rounded-3xl p-6">
-                    <div class="w-12 h-12 rounded-2xl bg-white text-squish-purple flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-truck"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">Doorstep Courier</h3>
-                    <p class="text-sm text-slate-600 mt-2">Convenient delivery options can be arranged for your order.</p>
-                </div>
-
-                <div class="bg-blue-50 rounded-3xl p-6">
-                    <div class="w-12 h-12 rounded-2xl bg-white text-blue-500 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">Quality Products</h3>
-                    <p class="text-sm text-slate-600 mt-2">Fun squishies selected for a satisfying experience.</p>
-                </div>
-
-                <div class="bg-purple-50 rounded-3xl p-6">
-                    <div class="w-12 h-12 rounded-2xl bg-white text-squish-purple flex items-center justify-center mb-4">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">WhatsApp Ordering</h3>
-                    <p class="text-sm text-slate-600 mt-2">Send your order directly through WhatsApp for easy communication.</p>
-                </div>
-
-                <div class="bg-yellow-50 rounded-3xl p-6">
-                    <div class="w-12 h-12 rounded-2xl bg-white text-yellow-600 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">Easy Payments</h3>
-                    <p class="text-sm text-slate-600 mt-2">Payment details can be confirmed with you when your order is processed.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQs -->
-    <section id="faqs" class="py-16 bg-squish-bg">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center mb-10">
-                <span class="inline-block bg-white text-squish-purple font-bold text-sm px-4 py-2 rounded-full mb-3">
-                    FAQs
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-3">
-
-                <div class="bg-white rounded-2xl border border-pink-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold">
-                        <span>How do I place an order?</span>
-                        <i class="fa-solid fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-5 pb-5 text-slate-600 text-sm">
-                        Add the products you want to your cart, enter your name and area, then tap the WhatsApp order button.
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-pink-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold">
-                        <span>How long does delivery take?</span>
-                        <i class="fa-solid fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-5 pb-5 text-slate-600 text-sm">
-                        The current estimated delivery time is 5–7 days, depending on your location and courier arrangements.
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-pink-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold">
-                        <span>Can I order more than one product?</span>
-                        <i class="fa-solid fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-5 pb-5 text-slate-600 text-sm">
-                        Yes. Add as many products as you would like and adjust the quantities in your cart before sending the order.
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-pink-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left p-5 font-bold">
-                        <span>How do I ask a question before ordering?</span>
-                        <i class="fa-solid fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-5 pb-5 text-slate-600 text-sm">
-                        Use the WhatsApp button and send us your question. We can help you with product and order enquiries.
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Mobile WhatsApp Bar -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur border-t border-pink-100">
-        <button onclick="openWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-2xl shadow-lg">
-            <i class="fa-brands fa-whatsapp mr-2"></i>
-            Chat on WhatsApp
-        </button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-10 pb-24 md:pb-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-                <div>
-                    <div class="brand-font text-xl font-bold">Squishyville</div>
-                    <p class="text-slate-400 text-sm mt-1">Super Squishy. Ultra Satisfying!</p>
-                </div>
-
-                <div class="text-sm text-slate-400 text-center md:text-right">
-                    <p>© 2026 Squishyville. All rights reserved.</p>
-                    <p class="mt-1">South Africa</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // =========================================================
-        // SQUISHYVILLE STORE SETTINGS
-        // =========================================================
-
-       
+function money(n){return 'R'+Number(n).toFixed(0)}
+function saveCart(){localStorage.setItem('squishyville-cart',JSON.stringify(cart))}
+function renderProducts(){
+const grid=document.getElementById('product-grid');
+grid.innerHTML=products.map(p=>`<article class="product-card bg-white rounded-3xl border border-pink-100 overflow-hidden shadow-sm"><div class="bg-squish-softpink p-4"><img src="${p.image}" alt="${p.name}" class="w-full h-64 object-contain rounded-2xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x500/FFE5EC/9B5DE5?text='+encodeURIComponent('${p.name}');"></div><div class="p-5"><div class="flex items-start justify-between gap-3"><h3 class="font-bold text-lg text-slate-900">${p.name}</h3><span class="shrink-0 bg-purple-50 text-squish-purple font-bold px-3 py-1 rounded-full">${money(p.price)}</span></div><button onclick="addToCart('${p.id}')" class="w-full mt-5 bg-squish-purple hover:bg-purple-700 text-white font-bold py-3 rounded-2xl transition"><i class="fa-solid fa-cart-plus mr-2"></i>Add to Cart</button></div></article>`).join('');
+}
+function addToCart(id){const item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id,qty:1});saveCart();renderCart();document.getElementById('cart').scrollIntoView({behavior:'smooth'});}
+function removeFromCart(id){cart=cart.filter(x=>x.id!==id);saveCart();renderCart();}
+function changeQuantity(id,delta){const item=cart.find(x=>x.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)removeFromCart(id);else{saveCart();renderCart();}}
+function clearCart(){cart=[];saveCart();renderCart();}
+function renderCart(){
+const box=document.getElementById('cart-items'),totalEl=document.getElementById('cart-total');
+if(!cart.length){box.innerHTML='<div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div>';totalEl.textContent='R0';return;}
+let total=0;
+box.innerHTML=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;total+=line;return `<div class="flex items-center gap-4 p-3 rounded-2xl bg-pink-50"><img src="${p.image}" alt="${p.name}" class="w-20 h-20 object-contain bg-white rounded-xl" onerror="this.style.display='none'"><div class="min-w-0 flex-1"><div class="font-bold truncate">${p.name}</div><div class="text-sm text-slate-500">${money(p.price)} each</div><div class="flex items-center gap-2 mt-2"><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',-1)">−</button><span class="font-bold w-6 text-center">${item.qty}</span><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',1)">+</button></div></div><div class="font-bold text-squish-purple">${money(line)}</div><button onclick="removeFromCart('${p.id}')" class="text-rose-400 hover:text-rose-600 p-1" aria-label="Remove item"><i class="fa-solid fa-xmark"></i></button></div>`}).join('');
+totalEl.textContent=money(total);
+}
+function sendWhatsAppOrder(){
+if(!cart.length){alert('Please add at least one product to your cart.');return;}
+const name=document.getElementById('customer-name').value.trim();
+const city=document.getElementById('customer-city').value.trim();
+let total=0;
+const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);const line=p.price*item.qty;total+=line;return `• ${p.name} x${item.qty} = ${money(line)}`;}).join('\n');
+const message=`Hi Squishyville! I'd like to place an order.\n\nName: ${name||'Not provided'}\nCity/Area: ${city||'Not provided'}\n\nOrder:\n${lines}\n\nProduct total: ${money(total)}\n\nPlease confirm availability, delivery cost and payment details.`;
+window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent(message),'_blank');
+}
+function openWhatsApp(){window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent('Hi Squishyville! I have a question about your products.'),'_blank');}
+function toggleFaq(button){const content=button.nextElementSibling;content.classList.toggle('open');const icon=button.querySelector('i');if(icon)icon.classList.toggle('rotate-180');}
+renderProducts();renderCart();
+</script>
+</body>
+</html>
