@@ -51,16 +51,20 @@ if(method==='courier'){
   if(missing){alert('Please complete the required delivery address fields so the courier can find you.');document.getElementById(missing).focus();return;}
 }
 let subtotal=0;
-const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;subtotal+=line;return '• '+p.name+' x'+item.qty+' = '+money(line);}).filter(Boolean).join('\n');
-let deliveryText='';
-let addressText='';
+const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;subtotal+=line;return '  • '+p.name+' x'+item.qty+' — '+money(line);}).filter(Boolean).join('\\n');
+const divider='━━━━━━━━━━━━━━━━━━';
+let deliverySection='';
+let addressSection='';
+let totalSection='';
 if(method==='pickup'){
-  deliveryText='Delivery: Free local pickup — Krugersdorp West (exact address provided after confirmation). Pickup usually ready within 1–2 business days; please wait for WhatsApp confirmation.';
+  deliverySection='🚚 *DELIVERY OPTION*\\nMethod: Free local pickup\\nArea: Krugersdorp West\\nPickup readiness: Usually within 1–2 business days\\nCollection: Please wait for our WhatsApp confirmation before collecting.';
+  totalSection='Product subtotal: '+money(subtotal)+'\\nPickup fee: FREE\\n*TOTAL: '+money(subtotal)+'*';
 }else{
-  deliveryText='Delivery: The Courier Guy nationwide — estimated R60–R100. Charges may vary by parcel size, weight and delivery location. Please confirm the exact courier charge before payment. Estimated delivery: 2–4 business days after dispatch.';
-  addressText='\nDelivery address:\nStreet: '+get('address-line1')+'\nComplex / unit / building: '+(get('address-line2')||'Not provided')+'\nSuburb: '+get('address-suburb')+'\nCity / Town: '+get('address-city')+'\nProvince: '+get('address-province')+'\nPostal code: '+get('address-postal-code')+'\nDirections / instructions: '+(get('delivery-instructions')||'Not provided')+'\n';
+  deliverySection='🚚 *DELIVERY OPTION*\\nCourier: The Courier Guy (nationwide)\\nCourier fee: Estimated R60–R100\\nFinal fee: To be confirmed by Squishyville before payment\\nDispatch: We will confirm the dispatch date after checking product availability\\nTransit time: Estimated 2–4 business days after dispatch\\nNote: Courier charges may vary by parcel size, weight and delivery location. Tracking details will be shared on WhatsApp once shipped.';
+  addressSection='📍 *DELIVERY ADDRESS*\\nStreet: '+get('address-line1')+'\\nComplex / unit / building: '+(get('address-line2')||'Not provided')+'\\nSuburb: '+get('address-suburb')+'\\nCity / town: '+get('address-city')+'\\nProvince: '+get('address-province')+'\\nPostal code: '+get('address-postal-code')+'\\nDelivery instructions: '+(get('delivery-instructions')||'Not provided');
+  totalSection='Product subtotal: '+money(subtotal)+'\\nCourier fee: R60–R100 (estimate)\\n*ESTIMATED TOTAL: '+money(subtotal+60)+'–'+money(subtotal+100)+'*\\nFinal total: To be confirmed before payment';
 }
-const message='Hi Squishyville! I would like to place an order.\n\nName: '+name+'\nContact number: '+(phone||'Not provided')+'\n\nOrder:\n'+lines+'\n\nProduct subtotal: '+money(subtotal)+'\n'+deliveryText+addressText+'\n\nI would like to pay via Yoco link. Please confirm availability and the final amount before sending the payment link.';
+const message='🛍️ *SQUISHYVILLE — NEW ORDER*\\n'+divider+'\\n\\n👤 *CUSTOMER DETAILS*\\nName: '+name+'\\nContact: '+(phone||'Not provided')+'\\n\\n📦 *ORDER SUMMARY*\\n'+lines+'\\n\\n'+divider+'\\n💰 *ORDER TOTAL*\\n'+totalSection+'\\n\\n'+divider+'\\n'+deliverySection+(addressSection?'\\n\\n'+divider+'\\n'+addressSection:'')+'\\n\\n'+divider+'\\n📋 *STOCK & PAYMENT STATUS*\\nProduct availability: Please confirm stock for each item before payment\\nPayment status: Awaiting confirmation\\nPayment method requested: Yoco payment link\\nNext step: Squishyville to confirm availability, dispatch/pickup timing and final amount before sending the payment link.\\n\\nThank you for supporting Squishyville! 💗';
 window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent(message),'_blank');
 }
 function openWhatsApp(){window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent('Hi Squishyville! I have a question about your products.'),'_blank');}
