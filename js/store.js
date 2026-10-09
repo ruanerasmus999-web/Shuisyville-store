@@ -11,26 +11,56 @@ function removeFromCart(id){cart=cart.filter(x=>x.id!==id);saveCart();renderCart
 function changeQuantity(id,delta){const item=cart.find(x=>x.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)removeFromCart(id);else{saveCart();renderCart();}}
 function clearCart(){cart=[];saveCart();renderCart();}
 function renderCart(){
-const box=document.getElementById('cart-items'),totalEl=document.getElementById('cart-total'),subtotalEl=document.getElementById('cart-subtotal'),deliveryCostEl=document.getElementById('delivery-cost'),deliveryNoteEl=document.getElementById('delivery-note');
-const methodEl=document.getElementById('delivery-method');
-const method=methodEl?methodEl.value:'courier';
-if(!cart.length){box.innerHTML='<div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div>';totalEl.textContent='R0';if(subtotalEl)subtotalEl.textContent='R0';if(deliveryCostEl)deliveryCostEl.textContent=method==='pickup'?'Free':'R60–R100 (estimate)';return;}
-let total=0;
-box.innerHTML=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;total+=line;return `<div class="flex items-center gap-4 p-3 rounded-2xl bg-pink-50"><img src="${p.image}" alt="${p.name}" class="w-20 h-20 object-contain bg-white rounded-xl" onerror="this.style.display='none'"><div class="min-w-0 flex-1"><div class="font-bold truncate">${p.name}</div><div class="text-sm text-slate-500">${money(p.price)} each</div><div class="flex items-center gap-2 mt-2"><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',-1)">−</button><span class="font-bold w-6 text-center">${item.qty}</span><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',1)">+</button></div></div><div class="font-bold text-squish-purple">${money(line)}</div><button onclick="removeFromCart('${p.id}')" class="text-rose-400 hover:text-rose-600 p-1" aria-label="Remove item"><i class="fa-solid fa-xmark"></i></button></div>`}).join('');
-if(subtotalEl)subtotalEl.textContent=money(total);
-if(method==='pickup'){if(deliveryCostEl)deliveryCostEl.textContent='Free';if(deliveryNoteEl)deliveryNoteEl.textContent='Free local pickup in Krugersdorp West. Usually ready within 1–2 business days; wait for WhatsApp confirmation before collecting.';totalEl.textContent=money(total);}
-else{if(deliveryCostEl)deliveryCostEl.textContent='R60–R100 (estimate)';if(deliveryNoteEl)deliveryNoteEl.textContent='Courier charges may vary by parcel size, weight and delivery location. We’ll confirm the exact charge on WhatsApp before payment.';totalEl.textContent=money(total)+' + courier (R60–R100 estimate)';}
+const box=document.getElementById('cart-items');
+const totalEl=document.getElementById('cart-total');
+const subtotalEl=document.getElementById('cart-subtotal');
+const deliveryCostEl=document.getElementById('delivery-cost');
+const deliveryNoteEl=document.getElementById('delivery-note');
+const method=document.querySelector('input[name="delivery-method"]:checked')?.value||'courier';
+const addressFields=document.getElementById('delivery-address-fields');
+const addressInputs=['address-line1','address-suburb','address-city','address-province','address-postal-code'];
+if(addressFields){
+  addressFields.hidden=method!=='courier';
+  addressInputs.forEach(id=>{const el=document.getElementById(id);if(el)el.required=method==='courier';});
+}
+let subtotal=0;
+const validItems=cart.map(item=>({item,p:products.find(x=>x.id===item.id)})).filter(x=>x.p);
+box.innerHTML=validItems.length?validItems.map(({item,p})=>{const line=p.price*item.qty;subtotal+=line;return `<div class="flex items-center gap-4 p-3 rounded-2xl bg-pink-50"><img src="${p.image}" alt="${p.name}" class="w-20 h-20 object-contain bg-white rounded-xl" onerror="this.style.display='none'"><div class="min-w-0 flex-1"><div class="font-bold truncate">${p.name}</div><div class="text-sm text-slate-500">${money(p.price)} each</div><div class="flex items-center gap-2 mt-2"><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',-1)">−</button><span class="font-bold w-6 text-center">${item.qty}</span><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',1)">+</button></div></div><div class="font-bold text-squish-purple">${money(line)}</div><button onclick="removeFromCart('${p.id}')" class="text-rose-400 hover:text-rose-600 p-1" aria-label="Remove item"><i class="fa-solid fa-xmark"></i></button></div>`}).join(''):'<div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div>';
+if(subtotalEl)subtotalEl.textContent=money(subtotal);
+if(method==='pickup'){
+  if(deliveryCostEl)deliveryCostEl.textContent='Free';
+  if(deliveryNoteEl)deliveryNoteEl.textContent='Free local pickup in Krugersdorp West. Usually ready within 1–2 business days; wait for WhatsApp confirmation before collecting.';
+  totalEl.textContent=money(subtotal);
+}else{
+  if(deliveryCostEl)deliveryCostEl.textContent='R60–R100 (estimate)';
+  if(deliveryNoteEl)deliveryNoteEl.textContent='Courier charges may vary by parcel size, weight and delivery location. We’ll confirm the exact charge on WhatsApp before payment.';
+  totalEl.textContent=money(subtotal)+' + courier (R60–R100 estimate)';
+}
+saveCart();
 }
 function sendWhatsAppOrder(){
 if(!cart.length){alert('Please add at least one product to your cart.');return;}
-const name=document.getElementById('customer-name').value.trim();
-const city=document.getElementById('customer-city').value.trim();
-const methodEl=document.getElementById('delivery-method');
-const method=methodEl?methodEl.value:'courier';
-let total=0;
-const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;total+=line;return '• '+p.name+' x'+item.qty+' = '+money(line);}).filter(Boolean).join('\n');
-const deliveryText=method==='pickup'?'Delivery: Free local pickup — Krugersdorp West (exact address provided after confirmation). Pickup usually ready within 1–2 business days; please wait for WhatsApp confirmation.':'Delivery: The Courier Guy nationwide — estimated R60–R100. Charges may vary by parcel size, weight and delivery location. Please confirm the exact courier charge before payment. Estimated delivery: 2–4 business days after dispatch.';
-const message='Hi Squishyville! I would like to place an order.\n\nName: '+(name||'Not provided')+'\nCity/Area: '+(city||'Not provided')+'\n\nOrder:\n'+lines+'\n\nProduct subtotal: '+money(total)+'\n'+deliveryText+'\n\nI would like to pay via Yoco link. Please confirm availability and the final amount before sending the payment link.';
+const get=id=>(document.getElementById(id)?.value||'').trim();
+const name=get('customer-name');
+const phone=get('customer-phone');
+const method=document.querySelector('input[name="delivery-method"]:checked')?.value||'courier';
+if(!name){alert('Please enter your name.');document.getElementById('customer-name').focus();return;}
+const addressIds=['address-line1','address-suburb','address-city','address-province','address-postal-code'];
+if(method==='courier'){
+  const missing=addressIds.find(id=>!get(id));
+  if(missing){alert('Please complete the required delivery address fields so the courier can find you.');document.getElementById(missing).focus();return;}
+}
+let subtotal=0;
+const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;subtotal+=line;return '• '+p.name+' x'+item.qty+' = '+money(line);}).filter(Boolean).join('\n');
+let deliveryText='';
+let addressText='';
+if(method==='pickup'){
+  deliveryText='Delivery: Free local pickup — Krugersdorp West (exact address provided after confirmation). Pickup usually ready within 1–2 business days; please wait for WhatsApp confirmation.';
+}else{
+  deliveryText='Delivery: The Courier Guy nationwide — estimated R60–R100. Charges may vary by parcel size, weight and delivery location. Please confirm the exact courier charge before payment. Estimated delivery: 2–4 business days after dispatch.';
+  addressText='\nDelivery address:\nStreet: '+get('address-line1')+'\nComplex / unit / building: '+(get('address-line2')||'Not provided')+'\nSuburb: '+get('address-suburb')+'\nCity / Town: '+get('address-city')+'\nProvince: '+get('address-province')+'\nPostal code: '+get('address-postal-code')+'\nDirections / instructions: '+(get('delivery-instructions')||'Not provided')+'\n';
+}
+const message='Hi Squishyville! I would like to place an order.\n\nName: '+name+'\nContact number: '+(phone||'Not provided')+'\n\nOrder:\n'+lines+'\n\nProduct subtotal: '+money(subtotal)+'\n'+deliveryText+addressText+'\n\nI would like to pay via Yoco link. Please confirm availability and the final amount before sending the payment link.';
 window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent(message),'_blank');
 }
 function openWhatsApp(){window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent('Hi Squishyville! I have a question about your products.'),'_blank');}
