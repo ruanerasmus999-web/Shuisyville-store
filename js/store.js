@@ -51,20 +51,18 @@ if(method==='courier'){
   if(missing){alert('Please complete the required delivery address fields so the courier can find you.');document.getElementById(missing).focus();return;}
 }
 let subtotal=0;
-const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;subtotal+=line;return '  • '+p.name+' x'+item.qty+' — '+money(line);}).filter(Boolean).join('\\n');
+const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;subtotal+=line;return '• '+p.name+' x'+item.qty+' — '+money(line);}).filter(Boolean).join('\n');
 const divider='━━━━━━━━━━━━━━━━━━';
-let deliverySection='';
+const deliverySection='🚚 *DELIVERY OPTION*\n'+(method==='pickup'?'Free local pickup':'Courier — The Courier Guy');
 let addressSection='';
 let totalSection='';
 if(method==='pickup'){
-  deliverySection='🚚 *DELIVERY OPTION*\\nMethod: Free local pickup\\nArea: Krugersdorp West\\nPickup readiness: Usually within 1–2 business days\\nCollection: Please wait for our WhatsApp confirmation before collecting.';
-  totalSection='Product subtotal: '+money(subtotal)+'\\nPickup fee: FREE\\n*TOTAL: '+money(subtotal)+'*';
+  totalSection='Products: '+money(subtotal)+'\nDelivery: R0\n*YOUR ORDER TOTAL: '+money(subtotal)+'*';
 }else{
-  deliverySection='🚚 *DELIVERY OPTION*\\nCourier: The Courier Guy (nationwide)\\nCourier fee: Estimated R60–R100\\nFinal fee: To be confirmed by Squishyville before payment\\nDispatch: We will confirm the dispatch date after checking product availability\\nTransit time: Estimated 2–4 business days after dispatch\\nNote: Courier charges may vary by parcel size, weight and delivery location. Tracking details will be shared on WhatsApp once shipped.';
-  addressSection='📍 *DELIVERY ADDRESS*\\nStreet: '+get('address-line1')+'\\nComplex / unit / building: '+(get('address-line2')||'Not provided')+'\\nSuburb: '+get('address-suburb')+'\\nCity / town: '+get('address-city')+'\\nProvince: '+get('address-province')+'\\nPostal code: '+get('address-postal-code')+'\\nDelivery instructions: '+(get('delivery-instructions')||'Not provided');
-  totalSection='Product subtotal: '+money(subtotal)+'\\nCourier fee: R60–R100 (estimate)\\n*ESTIMATED TOTAL: '+money(subtotal+60)+'–'+money(subtotal+100)+'*\\nFinal total: To be confirmed before payment';
+  addressSection='📍 *DELIVERY ADDRESS*\n'+get('address-line1')+(get('address-line2')?', '+get('address-line2'):'')+'\n'+get('address-suburb')+', '+get('address-city')+'\n'+get('address-province')+', '+get('address-postal-code')+(get('delivery-instructions')?'\nInstructions: '+get('delivery-instructions'):'');
+  totalSection='Products: '+money(subtotal)+'\nEstimated delivery: R60–R100\n*ESTIMATED GRAND TOTAL: '+money(subtotal+60)+'–'+money(subtotal+100)+'*\nFinal delivery fee to be confirmed.';
 }
-const message='🛍️ *SQUISHYVILLE — NEW ORDER*\\n'+divider+'\\n\\n👤 *CUSTOMER DETAILS*\\nName: '+name+'\\nContact: '+(phone||'Not provided')+'\\n\\n📦 *ORDER SUMMARY*\\n'+lines+'\\n\\n'+divider+'\\n💰 *ORDER TOTAL*\\n'+totalSection+'\\n\\n'+divider+'\\n'+deliverySection+(addressSection?'\\n\\n'+divider+'\\n'+addressSection:'')+'\\n\\n'+divider+'\\n📋 *STOCK & PAYMENT STATUS*\\nProduct availability: Please confirm stock for each item before payment\\nPayment status: Awaiting confirmation\\nPayment method requested: Yoco payment link\\nNext step: Squishyville to confirm availability, dispatch/pickup timing and final amount before sending the payment link.\\n\\nThank you for supporting Squishyville! 💗';
+const message='🛍️ *SQUISHYVILLE — NEW ORDER*\n\n👤 *PERSONAL DETAILS*\nName: '+name+'\nContact: '+(phone||'Not provided')+'\n\n'+deliverySection+(addressSection?'\n\n'+addressSection:'')+'\n\n📦 *YOUR ORDER*\n'+lines+'\n\n💰 *YOUR ORDER TOTAL*\n'+totalSection+'\n\n━━━━━━━━━━━━━━━━━━';
 window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent(message),'_blank');
 }
 function openWhatsApp(){window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent('Hi Squishyville! I have a question about your products.'),'_blank');}
