@@ -68,6 +68,46 @@ footer{background:linear-gradient(115deg,#2e1065,#4c1d95 60%,#831843)!important}
  .hero-section .hero-feature-card img{height:300px}
 }
 
+
+/* Site-wide colour harmony: carry the bold Squishyville homepage palette through every section */
+body{background:#fff7fc!important;color:#38245c}
+.site-header{background:rgba(255,250,255,.96)!important;border-color:#ead8ff!important}
+.promo-strip{background:linear-gradient(90deg,#5b21b6 0%,#9333ea 42%,#ec4899 78%,#fb923c 100%)!important}
+.site-nav a{color:#5b328b}
+.site-nav a[href="#cart"]{background:#f3e8ff;border:1px solid #e9d5ff;border-radius:999px;padding:.55rem .9rem}
+[aria-label="Shopping highlights"]{background:linear-gradient(90deg,#fff0f6 0%,#f5edff 52%,#eaf8ff 100%)!important;border-color:#e9d5ff!important}
+#products{background:linear-gradient(180deg,#fff7fc 0%,#f8f2ff 48%,#fff 100%)!important}
+#products .product-card{background:#fff!important;border:2px solid #ead8ff!important;box-shadow:0 12px 28px rgba(91,33,182,.08)}
+#products .product-card:hover{border-color:#c084fc!important;box-shadow:0 20px 38px rgba(147,51,234,.18)!important}
+#cart{background:linear-gradient(135deg,#f0e5ff 0%,#ffeaf3 52%,#fff3d1 100%)!important}
+#cart>div>div{border-color:#ead8ff!important}
+#cart input{background:#fffaff;border-color:#e9c9f5!important;color:#38245c}
+#cart input:focus{border-color:#a855f7!important;box-shadow:0 0 0 3px rgba(168,85,247,.15)}
+#cart button[onclick="sendWhatsAppOrder()"]{background:linear-gradient(90deg,#16a34a,#22c55e)!important;box-shadow:0 8px 18px rgba(22,163,74,.18)}
+#cart button[onclick="clearCart()"]{border-color:#e9c9f5!important;color:#6b3b8e!important;background:#fffaff}
+#cart button[onclick="clearCart()"]:hover{background:#fff0f6!important}
+#pickup{background:linear-gradient(180deg,#fff 0%,#fff4fa 45%,#f4edff 100%)!important}
+#pickup>div>div{border:2px solid #ead8ff!important;box-shadow:0 18px 45px rgba(91,33,182,.08)}
+#pickup>div>div>div{background:linear-gradient(135deg,#fff0f6 0%,#f5edff 55%,#eaf8ff 100%)!important}
+#pickup .grid>div,#pickup .mt-6.bg-white{background:rgba(255,255,255,.94)!important;border:1px solid #ead8ff!important;box-shadow:0 8px 18px rgba(91,33,182,.05)}
+#why-us{background:linear-gradient(135deg,#fff4f9 0%,#f5edff 55%,#fff8df 100%)!important}
+#why-us .grid>div{border:2px solid rgba(192,132,252,.2)!important;box-shadow:0 12px 28px rgba(91,33,182,.07)}
+#why-us .grid>div:nth-child(1){background:linear-gradient(145deg,#ffe5ee,#fff5f8)!important}
+#why-us .grid>div:nth-child(2){background:linear-gradient(145deg,#e0f2fe,#f4fbff)!important}
+#why-us .grid>div:nth-child(3){background:linear-gradient(145deg,#ede9fe,#faf5ff)!important}
+#why-us .grid>div:nth-child(4){background:linear-gradient(145deg,#fef3c7,#fffbeb)!important}
+#faqs{background:linear-gradient(180deg,#f5edff 0%,#fff0f6 58%,#fff8e5 100%)!important}
+#faqs .space-y-3>div{border:1px solid #e9d5ff!important;box-shadow:0 8px 20px rgba(91,33,182,.06);transition:transform .2s ease,box-shadow .2s ease}
+#faqs .space-y-3>div:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(91,33,182,.1)}
+#faqs .space-y-3 button{color:#4c1d95}
+footer{background:linear-gradient(115deg,#2e1065 0%,#5b21b6 52%,#9d174d 100%)!important}
+footer .text-slate-400{color:#eadcff!important}
+.md\\:hidden.fixed.bottom-0{background:rgba(255,248,253,.97)!important;border-color:#ead8ff!important}
+@media(max-width:640px){
+  #products,#cart,#pickup,#why-us,#faqs{background-size:cover}
+  #cart>div>div{border-radius:1.5rem}
+}
+
 </style>
 </head>
 <body class="text-slate-800">
