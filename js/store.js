@@ -25,9 +25,12 @@ function sendWhatsAppOrder(){
 if(!cart.length){alert('Please add at least one product to your cart.');return;}
 const name=document.getElementById('customer-name').value.trim();
 const city=document.getElementById('customer-city').value.trim();
+const methodEl=document.getElementById('delivery-method');
+const method=methodEl?methodEl.value:'courier';
 let total=0;
-const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);const line=p.price*item.qty;total+=line;return `• ${p.name} x${item.qty} = ${money(line)}`;}).join('\n');
-const message=`Hi Squishyville! I'd like to place an order.\n\nName: ${name||'Not provided'}\nCity/Area: ${city||'Not provided'}\n\nOrder:\n${lines}\n\nProduct total: ${money(total)}\n\nPlease confirm availability, delivery cost and payment details.`;
+const lines=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;total+=line;return '• '+p.name+' x'+item.qty+' = '+money(line);}).filter(Boolean).join('\n');
+const deliveryText=method==='pickup'?'Delivery: Free local pickup — Krugersdorp West (exact address provided after confirmation). Pickup usually ready within 1–2 business days; please wait for WhatsApp confirmation.':'Delivery: The Courier Guy nationwide — estimated R60–R100. Charges may vary by parcel size, weight and delivery location. Please confirm the exact courier charge before payment. Estimated delivery: 2–4 business days after dispatch.';
+const message='Hi Squishyville! I would like to place an order.\n\nName: '+(name||'Not provided')+'\nCity/Area: '+(city||'Not provided')+'\n\nOrder:\n'+lines+'\n\nProduct subtotal: '+money(total)+'\n'+deliveryText+'\n\nI would like to pay via Yoco link. Please confirm availability and the final amount before sending the payment link.';
 window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent(message),'_blank');
 }
 function openWhatsApp(){window.open('https://wa.me/'+STORE_PHONE+'?text='+encodeURIComponent('Hi Squishyville! I have a question about your products.'),'_blank');}
