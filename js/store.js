@@ -11,11 +11,15 @@ function removeFromCart(id){cart=cart.filter(x=>x.id!==id);saveCart();renderCart
 function changeQuantity(id,delta){const item=cart.find(x=>x.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)removeFromCart(id);else{saveCart();renderCart();}}
 function clearCart(){cart=[];saveCart();renderCart();}
 function renderCart(){
-const box=document.getElementById('cart-items'),totalEl=document.getElementById('cart-total');
-if(!cart.length){box.innerHTML='<div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div>';totalEl.textContent='R0';return;}
+const box=document.getElementById('cart-items'),totalEl=document.getElementById('cart-total'),subtotalEl=document.getElementById('cart-subtotal'),deliveryCostEl=document.getElementById('delivery-cost'),deliveryNoteEl=document.getElementById('delivery-note');
+const methodEl=document.getElementById('delivery-method');
+const method=methodEl?methodEl.value:'courier';
+if(!cart.length){box.innerHTML='<div class="text-center py-8 text-slate-500"><i class="fa-solid fa-cart-shopping text-3xl mb-3 text-squish-pink"></i><p>Your cart is empty.</p><a href="#products" class="inline-block mt-3 text-squish-purple font-bold">Browse products</a></div>';totalEl.textContent='R0';if(subtotalEl)subtotalEl.textContent='R0';if(deliveryCostEl)deliveryCostEl.textContent=method==='pickup'?'Free':'R60–R100 (estimate)';return;}
 let total=0;
 box.innerHTML=cart.map(item=>{const p=products.find(x=>x.id===item.id);if(!p)return '';const line=p.price*item.qty;total+=line;return `<div class="flex items-center gap-4 p-3 rounded-2xl bg-pink-50"><img src="${p.image}" alt="${p.name}" class="w-20 h-20 object-contain bg-white rounded-xl" onerror="this.style.display='none'"><div class="min-w-0 flex-1"><div class="font-bold truncate">${p.name}</div><div class="text-sm text-slate-500">${money(p.price)} each</div><div class="flex items-center gap-2 mt-2"><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',-1)">−</button><span class="font-bold w-6 text-center">${item.qty}</span><button class="quantity-btn bg-white border border-pink-200" onclick="changeQuantity('${p.id}',1)">+</button></div></div><div class="font-bold text-squish-purple">${money(line)}</div><button onclick="removeFromCart('${p.id}')" class="text-rose-400 hover:text-rose-600 p-1" aria-label="Remove item"><i class="fa-solid fa-xmark"></i></button></div>`}).join('');
-totalEl.textContent=money(total);
+if(subtotalEl)subtotalEl.textContent=money(total);
+if(method==='pickup'){if(deliveryCostEl)deliveryCostEl.textContent='Free';if(deliveryNoteEl)deliveryNoteEl.textContent='Free local pickup in Krugersdorp West. Usually ready within 1–2 business days; wait for WhatsApp confirmation before collecting.';totalEl.textContent=money(total);}
+else{if(deliveryCostEl)deliveryCostEl.textContent='R60–R100 (estimate)';if(deliveryNoteEl)deliveryNoteEl.textContent='Courier charges may vary by parcel size, weight and delivery location. We’ll confirm the exact charge on WhatsApp before payment.';totalEl.textContent=money(total)+' + courier (R60–R100 estimate)';}
 }
 function sendWhatsAppOrder(){
 if(!cart.length){alert('Please add at least one product to your cart.');return;}
